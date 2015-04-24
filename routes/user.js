@@ -35,7 +35,7 @@ exports.saveImageDiary2 = function(req,res)
 	var text15=req.body.text15;
 	var text16=req.body.text16;
 
-	var query="insert into test.diary2 (image1,image2,image3,image4,image5,image6,image7,image8,text1,text2,text3,text4,text5,text6,text7,text8,text9,text10,text11,text12,text13,text14,text15,text16) values ('"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+image5+"','"+image6+"','"+image7+"','"+image8+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"','"+text5+"','"+text6+"','"+text7+"','"+text8+"','"+text9+"','"+text10+"','"+text11+"','"+text12+"','"+text13+"','"+text14+"','"+text15+"','"+text16+"')";
+	var query="insert into 280.diary2 (image1,image2,image3,image4,image5,image6,image7,image8,text1,text2,text3,text4,text5,text6,text7,text8,text9,text10,text11,text12,text13,text14,text15,text16) values ('"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+image5+"','"+image6+"','"+image7+"','"+image8+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"','"+text5+"','"+text6+"','"+text7+"','"+text8+"','"+text9+"','"+text10+"','"+text11+"','"+text12+"','"+text13+"','"+text14+"','"+text15+"','"+text16+"')";
 	
 	
 console.log("query for text1 is: "+text1);
@@ -82,7 +82,7 @@ exports.saveImageDiary3 = function(req,res)
 	var text6=req.body.text6;
 	var text7=req.body.text7;
 
-	var query="insert into test.diary3 (image1,image2,image3,image4,text1,text2,text3,text4,text5,text6,text7) values ('"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"','"+text5+"','"+text6+"','"+text7+"')";
+	var query="insert into 280.diary3 (image1,image2,image3,image4,text1,text2,text3,text4,text5,text6,text7) values ('"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"','"+text5+"','"+text6+"','"+text7+"')";
 	
 	
 console.log("query for text1 is: "+text1);
@@ -122,7 +122,7 @@ exports.saveImageDiary1 = function(req,res)
 	var text6=req.body.text6;
 	var text7=req.body.text7;
 	var text8=req.body.text8;
-	var query="insert into test.diary1 (image1,image2,image3,image4,text1,text2,text3,text4,text5,text6,text7,text8) values ('"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"','"+text5+"','"+text6+"','"+text7+"','"+text8+"')";
+	var query="insert into 280.diary1 (image1,image2,image3,image4,text1,text2,text3,text4,text5,text6,text7,text8) values ('"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"','"+text5+"','"+text6+"','"+text7+"','"+text8+"')";
 	
 	
 console.log("query for text1 is: "+text1);
@@ -149,7 +149,7 @@ console.log("query for text2 is: "+text8);
 exports.getDiary1 = function(req,res)
 {
 	
-	var imgQuery="select * from test.diary1";
+	var imgQuery="select * from 280.diary1";
 	
 
 	
@@ -169,7 +169,7 @@ exports.getDiary1 = function(req,res)
 exports.getDiary2 = function(req,res)
 {
 	
-	var imgQuery="select * from test.diary2";
+	var imgQuery="select * from 280.diary2";
 	
 
 	
@@ -187,7 +187,7 @@ exports.getDiary2 = function(req,res)
 exports.getDiary3 = function(req,res)
 {
 	
-	var imgQuery="select * from test.diary3";
+	var imgQuery="select * from 280.diary3";
 	
 
 	
@@ -197,6 +197,54 @@ exports.getDiary3 = function(req,res)
 		}
 		else 
 		{
+			res.render('next.ejs', {results: results});
+		}  
+	},imgQuery);
+};
+
+
+//***************************************************
+
+exports.saveImage = function(req,res)
+{
+	//console.log(req);
+	//var img=req.param("img");
+	var image1=req.body.image1;
+	var image2=req.body.image2;
+	var image3=req.body.image3;
+	var image4=req.body.image4;
+	var collage=req.body.collage;
+	
+	var imgQuery="insert into 280.users (image1,image2,image3,image4,collage) values('"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"', '"+collage+"')";
+	
+	console.log("query for image is: "+imgQuery);
+	
+	mysql.dbcall(function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			console.log("image Saved Successfully");
+			res.send({"save":"Success"});
+		}  
+	},imgQuery);
+};
+
+exports.getImage = function(req,res)
+{
+	
+	var imgQuery="select image1 from users";
+	
+	console.log("query for image is: "+imgQuery);
+	
+	mysql.dbcall(function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			console.log("image Saved Successfully");
 			res.render('next.ejs', {results: results});
 		}  
 	},imgQuery);

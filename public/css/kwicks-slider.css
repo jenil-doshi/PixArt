@@ -74,7 +74,7 @@ html[xmlns] .slides {
 	font-family: 'Dorsa', sans-serif;
 	color:#fff;
 	font-size:100px;
-	line-height:70px;
+	line-height:104px;
 	position:absolute;
 	top:50%;
 	left:50%;
@@ -100,7 +100,7 @@ html[xmlns] .slides {
 }
 .flexslider .slides img {
 	display: block;
-	max-width: 500px;
+	max-width: 770px;
 }
 .flexslider .hover-img {
 	position:absolute;

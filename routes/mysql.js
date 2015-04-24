@@ -6,7 +6,7 @@ function getConnection(){
 	    host     : 'localhost',
 	    user     : 'root',
 	    password : 'root',
-	    database : 'pixart'
+	    database : '280'
 	});
 	return connection;
 }

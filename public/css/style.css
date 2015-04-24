@@ -1218,8 +1218,8 @@ footer {
 }
 @media (max-width: 320px) {
   .brand_ a img {
-    width: 10px;
-    height: 10px;
+    width: 190px;
+    height: auto;
   }
   .list-photo {
     margin: 0;

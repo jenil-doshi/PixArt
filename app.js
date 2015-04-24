@@ -30,12 +30,19 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.get('/collage1', routes.collage1);
 app.post('/saveDiary1', user.saveImageDiary1);
 app.post('/saveDiary2', user.saveImageDiary2);
 app.post('/saveDiary3', user.saveImageDiary3);
 app.get('/getDiary1', user.getDiary1);
 app.get('/getDiary2', user.getDiary2);
 app.get('/getDiary3', user.getDiary3);
+
+//collage
+
+app.post('/uservalue', user.saveImage);
+app.get('/uservalue', user.getImage);
+//
 app.post('/login',auth.login);
 app.post('/signUp',auth.signUp);
 
