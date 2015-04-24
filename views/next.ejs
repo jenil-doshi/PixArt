@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Booklet - jQuery Plugin</title>    
+    <link href="/stylesheets/jquery.booklet.latest.css" type="text/css" rel="stylesheet" media="screen, projection, tv" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
+    <style type="text/css">
+        body {background:#ccc; font:normal 12px/1.2 arial, verdana, sans-serif;}
+        .glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.glyphicon-plus:before {
+  content: "\2b";
+  color: #333;
+}
+
+@font-face {
+font-family: 'Glyphicons Halflings';
+  src: url("glyphicons-halflings-regular");
+}
+textarea {
+   resize: none;
+}
+</style>
+
+<script type="text/javascript">
+function saveData(){
+
+  var obj = {
+    text1:document.getElementById('text1').value,
+    text2:document.getElementById('text2').value,
+    text3:document.getElementById('text3').value,
+    text4:document.getElementById('text4').value,
+    text5:document.getElementById('text5').value,
+    text6:document.getElementById('text6').value,
+    text7:document.getElementById('text7').value,
+    text8:document.getElementById('text8').value,
+    image1:document.getElementById('name').src,
+    image2:document.getElementById('name1').src,
+    image3:document.getElementById('name2').src,
+    image4:document.getElementById('name3').src
+
+  };
+
+    var xmlRequest;
+    if(window.XMLHttpRequest){
+      xmlRequest = new XMLHttpRequest();
+    }else{
+       xmlRequest=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+      //alert("Next");
+        xmlRequest.open('POST',"/uservalue",true);
+        xmlRequest.setRequestHeader("Content-type","application/json;charset=UTF-8");
+        xmlRequest.send(JSON.stringify(obj));
+    
+}
+</script>
+</head>
+<body ng-app="" ng-controller="userProfileController">
+  <header>
+    <h1>Booklet Example</h1>
+  </header>
+  <section>
+    <form  name="form1" method="POST" onsubmit="return saveData();">
+      <div id="mybook">
+
+          <div id="div1">    
+          
+              <textarea id="text1" style="overflow:hidden;height: 141px;width: 120px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 6%;"><%=results[0].text1%></textarea>
+                
+              <section>
+                   <input style="display:none;" id="i" name="fileupload" type="file"/> 
+                   <span id="fc" class="glyphicon glyphicon-plus" style="margin-left: 45%;margin-top: 4%;position: absolute;"></span>
+                  <img  src="<%=results[0].image1%>" id="name" class="media-object" alt="" width="150px" height="150px" style="margin-left: 44%;position: absolute;margin-top: 6%;"/>
+              </section>
+                
+              <textarea id="text2" style="height: 180px;width: 278px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 56%;">
+                <%=results[0].text2%>
+              </textarea>
+            
+          </div>
+
+          
+              <div id="div2">    
+          
+              <textarea id="text3" style="overflow:hidden;height: 141px;width: 120px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 6%;">
+                  <%=results[0].text3%>
+              </textarea>
+                
+              <section>
+                   <input style="display:none;" id="i1" name="fileupload" type="file"/> 
+                   <span id="fc1" class="glyphicon glyphicon-plus" style="margin-left: 45%;margin-top: 4%;position: absolute;"></span>
+                  <img  src="<%=results[0].image2%>" id="name1" class="media-object" alt="" width="150px" height="150px" style="margin-left: 44%;position: absolute;margin-top: 6%;"/>
+              </section>
+                
+              <textarea id="text4" style="height: 180px;width: 278px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 56%;">
+                <%=results[0].text4%>
+              </textarea>
+            
+          
+          </div>
+
+          
+          <div id="div3">    
+          
+              <textarea id="text5" style="overflow:hidden;height: 141px;width: 120px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 6%;">
+                <%=results[0].text5%>
+              </textarea>
+              <section>
+                   <input style="display:none;" id="i2" name="fileupload" type="file"/> 
+                   <span id="fc2" class="glyphicon glyphicon-plus" style="margin-left: 45%;margin-top: 4%;position: absolute;"></span>
+                  <img  src="<%=results[0].image3%>" id="name2" class="media-object" alt="" width="150px" height="150px" style="margin-left: 44%;position: absolute;margin-top: 6%;"/>
+              </section>
+              <textarea id="text6" style="height: 180px;width: 278px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 56%;">
+                <%=results[0].text6%>
+              </textarea>
+            
+          
+          </div>
+
+
+          <div id="div4">
+
+             <textarea id="text7" style="overflow:hidden;height: 141px;width: 120px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 6%;">
+              <%=results[0].text7%>
+             </textarea>
+                
+              <section>
+                   <input style="display:none;" id="i3" name="fileupload" type="file"/> 
+                   <span id="fc3" class="glyphicon glyphicon-plus" style="margin-left: 45%;margin-top: 4%;position: absolute;"></span>
+                  <img  src="<%=results[0].image4%>" id="name3" class="media-object" alt="" width="150px" height="150px" style="margin-left: 44%;position: absolute;margin-top: 6%;"/>
+              </section>
+                
+              <textarea id="text8" style="height: 180px;width: 278px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 56%;">
+                <%=results[0].text8%>
+              </textarea>
+              
+          </div>
+          <div>
+              <h3><input type="textarea" id="page5" style="height: 313px;width: 273px;border:0px"/></h3>
+          </div>
+          <div>
+              <h3><input type="textarea" id="page6" style="height: 313px;width: 273px;border:0px"/></h3>
+          </div>
+      </div>
+      <input type="submit">Submit</input>
+    </form>
+  </section>
+  <footer></footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script> window.jQuery || document.write('<script src="../booklet/jquery-2.1.0.min.js"><\/script>') </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <script> window.jQuery.ui || document.write('<script src="../booklet/jquery-ui-1.10.4.min.js"><\/script>') </script>
+    <script src="/javascript/jquery.easing.1.3.js"></script>
+    <script src="/javascript/jquery.booklet.latest.js"></script>
+  <script>
+      $(function () {   
+          $("#mybook").booklet();
+      });
+     
+     
+$('#fc').click(function () {
+    $('#i').click();
+});
+
+$('#i').change(function () {
+    $('#name').html(function(){
+      return true;
+    });
+});
+
+//-------------------
+
+$('#fc1').click(function () {
+    $('#i1').click();
+});
+
+$('#i1').change(function () {
+    $('#name1').html(function(){
+        return true;
+    });
+});
+
+//-------------------
+$('#fc2').click(function () {
+    $('#i2').click();
+});
+
+$('#i2').change(function () {
+    $('#name2').html(function(){
+        return true;
+    });
+});
+
+//-------------------
+$('#fc3').click(function () {
+    $('#i3').click();
+});
+
+$('#i3').change(function () {
+    $('#name3').html(function(){
+        return true;
+    });
+});
+
+/*$('form1').submit(function(event){
+
+    event.preventDefault();
+ 
+   var $form = $( this ),
+    text1 = $form.find( "textarea[name='t1']" ).val(),
+    
+    text2 = $form.find( "textarea[name='t2']" ).val(),
+    
+    image = $('div1 img').attr('src');
+    
+    url=$form.attr("action");
+    alert("Text1 is: "+text1);
+    alert("Text2 is: "+text2);
+    alert("Image is: "+image);
+    var posting= $.post(url,{text1:text1,text2:text2,image:image});
+
+    posting.done(function( data ) {
+    alert("data saved successfully");
+  });
+});*/
+
+
+    function userProfileController($scope,$http,$location) {
+     $('#i').change(function () {
+       // alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+    function imageIsLoaded(e) {
+      
+           //$http.post('/uservalue',{image: e.target.result});
+            $('#name').attr('src', e.target.result);
+            
+        };
+
+        //-------------------
+
+    $('#i1').change(function () {
+       // alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded1;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+    function imageIsLoaded1(e) {
+      
+           //$http.post('/uservalue',{image: e.target.result});
+            $('#name1').attr('src', e.target.result);
+            
+        };
+
+        //-------------------
+
+    $('#i2').change(function () {
+       // alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded2;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+    function imageIsLoaded2(e) {
+      
+           //$http.post('/uservalue',{image: e.target.result});
+            $('#name2').attr('src', e.target.result);
+            
+        };
+
+        //-------------------
+
+    $('#i3').change(function () {
+       // alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded3;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+    function imageIsLoaded3(e) {
+      
+           //$http.post('/uservalue',{image: e.target.result});
+            $('#name3').attr('src', e.target.result);
+            
+        };
+
+
+}
+
+    </script>
+</body>
+</html>
