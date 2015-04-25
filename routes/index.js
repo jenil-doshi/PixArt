@@ -7,6 +7,6 @@ exports.index = function(req, res){
   res.render('index', { title: 'PixArt' });
 };
 
-exports.collage1 = function(req, res){
-  res.render('collage');
+exports.collage4 = function(req, res){
+  res.render('collage4/collage4');
 };

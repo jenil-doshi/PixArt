@@ -205,17 +205,15 @@ exports.getDiary3 = function(req,res)
 
 //***************************************************
 
-exports.saveImage = function(req,res)
+exports.saveCollage4 = function(req,res)
 {
-	//console.log(req);
-	//var img=req.param("img");
 	var image1=req.body.image1;
 	var image2=req.body.image2;
 	var image3=req.body.image3;
 	var image4=req.body.image4;
-	var collage=req.body.collage;
+	var collageId=req.body.collageId;
 	
-	var imgQuery="insert into 280.users (image1,image2,image3,image4,collage) values('"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"', '"+collage+"')";
+	var imgQuery="insert into 280.four_collage (userId, collageId, image1) values(1,'"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
 	
 	console.log("query for image is: "+imgQuery);
 	
@@ -225,13 +223,13 @@ exports.saveImage = function(req,res)
 		}
 		else 
 		{
-			console.log("image Saved Successfully");
+			console.log("images Saved Successfully");
 			res.send({"save":"Success"});
 		}  
 	},imgQuery);
 };
 
-exports.getImage = function(req,res)
+exports.displayCollage4 = function(req,res)
 {
 	
 	var imgQuery="select image1 from users";

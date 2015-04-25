@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>PIXART</title>
+  <title><%= title %></title>
   <meta charset="utf-8">
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
   <meta name="description" content="Your description">
   <meta name="keywords" content="Your keywords">
   <meta name="author" content="Your name">
-  <link rel="stylesheet" href="./css/bootstrap.css" type="text/css" media="screen">
-  <link rel="stylesheet" href="./css/responsive.css" type="text/css" media="screen">
-  <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen">
-  <link rel="stylesheet" href="./css/touchTouch.css" type="text/css" media="screen">
-  <link rel="stylesheet" href="./css/kwicks-slider.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/touchTouch.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/kwicks-slider.css" type="text/css" media="screen">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="./js/jquery.js"></script>
-    <script type="text/javascript" src="./js/superfish.js"></script>
-  <script type="text/javascript" src="./js/jquery.flexslider-min.js"></script>
-  <script type="text/javascript" src="./js/jquery.kwicks-1.5.1.js"></script>
-  <script type="text/javascript" src="./js/jquery.easing.1.3.js"></script>    
-  <script type="text/javascript" src="./js/touchTouch.jquery.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/superfish.js"></script>
+  <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+  <script type="text/javascript" src="js/jquery.kwicks-1.5.1.js"></script>
+  <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>    
+  <script type="text/javascript" src="js/touchTouch.jquery.js"></script>
   
-<script type="text/javascript" src="./js/jquery.leanModal.min.js"></script>
+<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-<link type="text/css" rel="stylesheet" href="./css/style1.css" /> 
+<link type="text/css" rel="stylesheet" href="css/style1.css" /> 
 
-  <script type="text/javascript">if($(window).width()>1024){document.write("<"+"script src='./js/jquery.preloader.js'></"+"script>");}  </script>
+  <script type="text/javascript">if($(window).width()>1024){document.write("<"+"script src='js/jquery.preloader.js'></"+"script>");}  </script>
 
   <script>    
      jQuery(window).load(function() { 
@@ -51,11 +51,12 @@
           <div class="span12">
         <div class="navbar navbar_">
               <div class="container">
-            <h1 class="brand brand_"><a href="index.html"><img alt="" src="img/logo1.jpeg"> </a></h1>
+            <h1 class="brand brand_"><a href="index.html"><img alt="" src="img/logo1.jpeg" 
+              style="height: 70px;">  </a></h1>
             <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">Menu <span class="icon-bar"></span> </a>
             <div class="nav-collapse nav-collapse_  collapse">
                   <ul class="nav sf-menu">
-                <li class="active"><a href="/">Home</a></li>
+                <li class="active"><a href="index.html">Home</a></li>
                 <li class="sub-menu"><a href="index-1.html">Services</a>
                     </li>
                     <li><a id="modal_trigger" href="#modal" class="btn" 
@@ -76,10 +77,9 @@
         <!--============================== slider =================================-->
         <div class="flexslider">
               <ul class="slides">
-            <li> <img src="/images/website/Autumn-Collage-785x490.jpg" alt="" > </li>
-            <li> <img src="/images/website/new-year-2009-greetings.png" alt="" > </li>
-            <li> <img src="images/website/diary.jpg" alt="" > </li>
-            <li> <img src="images/website/card.jpg" alt="" > </li>
+            <li> <img src="img/collage.jpg" alt="" > </li>
+            <li> <img src="img/greeting.jpg" alt="" > </li>
+            <li> <img src="img/diary.jpg" alt="" > </li>
           </ul>
             </div>
         <span id="responsiveFlag"></span>
@@ -153,40 +153,40 @@
 
       <!-- Username & Password Login form -->
       <div class="user_login">
-        <form action="/login" method="POST">
-          <label>Email Address</label>
-          <input type="email" name="email" id="email" />
+        <form method="post" action="/login">
+          <label>Email</label>
+          <input type="email" name="email" />
           <br />
 
           <label>Password</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" />
           <br />
 
           <div class="action_btns">
             <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-            <div class="one_half last"><input type="submit" value="Login" class="btn btn_red"></div>
+            <div class="one_half last"><input type="submit" class="btn btn_red" value="Login"></div>
           </div>
         </form>
       </div>
 
       <!-- Register Form -->
       <div class="user_register">
-        <form action="/signUp" method="POST">
-          <label>Username</label>
-          <input type="text" name="username" id="username" />
+        <form method="post" action="/signUp">
+          <label>Full Name</label>
+          <input type="text" name="name" />
           <br />
 
           <label>Email Address</label>
-          <input type="email" name="email" id="email" />
+          <input type="email" name="email" />
           <br />
 
           <label>Password</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password"/>
           <br />
 
           <div class="action_btns">
             <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-            <div class="one_half last"><input type="submit" value="Register" class="btn btn_red"></div>
+            <div class="one_half last"><input type="submit" class="btn btn_red" value="Register"></div>
           </div>
         </form>
       </div>
@@ -206,7 +206,7 @@
     <div class="privacy pull-left">Website designed by PixArt</div>
   </div>
     </footer>
-<script type="text/javascript" src="./js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript">
   $("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
 

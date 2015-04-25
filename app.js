@@ -8,10 +8,14 @@ var express = require('express')
   , user = require('./routes/user')
   , auth = require('./routes/auth')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , session = require('express-session');
 
 var app = express();
 
+app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(express.session({ secret: 'keyboard cat', cookie: { maxAge: 300000 }}));
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -30,7 +34,9 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/collage1', routes.collage1);
+app.get('/collage4', routes.collage4);
+app.post('/saveCollage4', user.saveCollage4);
+app.get('/displayCollage4', user.displayCollage4);
 app.post('/saveDiary1', user.saveImageDiary1);
 app.post('/saveDiary2', user.saveImageDiary2);
 app.post('/saveDiary3', user.saveImageDiary3);
@@ -38,13 +44,11 @@ app.get('/getDiary1', user.getDiary1);
 app.get('/getDiary2', user.getDiary2);
 app.get('/getDiary3', user.getDiary3);
 
-//collage
 
-app.post('/uservalue', user.saveImage);
-app.get('/uservalue', user.getImage);
 //
 app.post('/login',auth.login);
 app.post('/signUp',auth.signUp);
+app.get('/signout',auth.signout);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
