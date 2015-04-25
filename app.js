@@ -34,9 +34,23 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+
+app.get('/collage2', routes.collage2);
+app.post('/saveCollage2', user.saveCollage2);
+app.get('/displayCollage2', user.displayCollage2);
+
+app.get('/collage3', routes.collage3);
+app.post('/saveCollage3', user.saveCollage3);
+app.get('/displayCollage3', user.displayCollage3);
+
 app.get('/collage4', routes.collage4);
 app.post('/saveCollage4', user.saveCollage4);
 app.get('/displayCollage4', user.displayCollage4);
+
+app.get('/collage5', routes.collage5);
+app.post('/saveCollage5', user.saveCollage5);
+app.get('/displayCollage5', user.displayCollage5);
+
 app.post('/saveDiary1', user.saveImageDiary1);
 app.post('/saveDiary2', user.saveImageDiary2);
 app.post('/saveDiary3', user.saveImageDiary3);

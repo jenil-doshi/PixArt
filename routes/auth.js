@@ -17,12 +17,20 @@ mysql.dbcall(function(err,results){
 		}
 		else 
 		{
-			req.session.email = results[0].email;
-			req.session.userId = results[0].userId;
-			console.log("Session Email ID: " + req.session.email);
-			console.log("Session UserId ID: " + req.session.userId);
-			console.log("Login Successfully");
-			res.send({"fetch":"Success"});
+			if(results.length > 0)
+				{
+					req.session.email = results[0].email;
+					req.session.userId = results[0].userId;
+					console.log("Session Email ID: " + req.session.email);
+					console.log("Session UserId ID: " + req.session.userId);
+					console.log("Login Successfully");
+					res.render('collage4/collage4', {results:results});
+					
+				}  
+				else
+				{
+					alert("Error in Log in");
+				}	
 		}  
 	},query);
 
