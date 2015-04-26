@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <style>
+/* input {
+    display: none;
+}*/
+  </style>
+</head>
+
+<body ng-app="" ng-controller="userProfileController">
+<div class="media-left">
+<!-- <input id="fileupload" name="fileupload" type="file" />
+<img  id="drag1" draggable="true" ondragstart="drag(event)" class="media-object" alt="" width=200 height=200> 
+ -->
+<!-- <input type="button" value="Save"> -->
+
+<table style="table-layout:fixed;" border="1" cellspacing="10">
+  <tr>
+    
+    <td id="div1" ondrop="drop(event)" data-drop="drag1" ondragover="allowDrop(event)" 
+    style="max-width: 100px; max-height: 100px" colspan="2">
+    <input style="display:none;" id="i" name="fileupload" type="file" /> 
+     <span id="fc" class="glyphicon glyphicon-plus"></span>
+     <img  id="name" src="<%= results[0].image %>" class="media-object" alt=""> 
+    </td>
+
+    <td id="div2" ondrop="drop(event)" data-drop="drag2" ondragover="allowDrop(event)" 
+     style="width: 100px; height: 100px">
+     <input style="display:none;" id="i1" name="fileupload" type="file" /> 
+     <span id="fc1" class="glyphicon glyphicon-plus"></span>
+     <img id="name1" src="<%= results[1].image %>" class="media-object" alt="" width=200 height=200> 
+    </td>
+
+  </tr>
+  <tr>
+     <td style="width: 100px; height: 100px" rowspan="2"></td>
+    <td style="width: 100px; height: 100px" colspan="2"></td>
+  </tr>
+  <tr>
+    <td style="width: 100px; height: 100px"></td>
+    <td style="width: 100px; height: 100px"></td>
+  </tr>
+</table>
+
+
+</div>
+<script>
+
+$('#fc').click(function () {
+    $('#i').click();
+});
+
+$('#i').change(function () {
+    $('#name').html(function(){
+        var fakePath = $('#i').attr('value').toString().split('\\');
+        return fakePath[fakePath.length - 1];
+    });
+});
+
+$('#fc1').click(function () {
+    $('#i1').click();
+});
+
+$('#i1').change(function () {
+    $('#name1').html(function(){
+        var fakePath = $('#i').attr('value').toString().split('\\');
+        return fakePath[fakePath.length - 1];
+    });
+});
+
+function userProfileController($scope,$http,$location) {
+    
+  console.log("hello");
+   $('#i').change(function () {
+       // alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+    function imageIsLoaded(e) {
+           $http.post('/uservalue',{image: e.target.result});
+            $('#name').attr('src', e.target.result);
+            
+        };
+
+      $('#i1').change(function () {
+        //alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded1;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+    function imageIsLoaded1(e) {
+           $http.post('/uservalue',{image: e.target.result});
+            $('#name1').attr('src', e.target.result);
+            
+        };
+}
+</script>
+</body>
+</html>

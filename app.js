@@ -36,7 +36,7 @@ app.get('/', routes.index);
 
 
 
-app.get('/diary1/:id', user.displayDiary);
+app.get('/diary/:id', user.displayDiary);
 
 
 app.get('/collage2', routes.collage2);
@@ -64,7 +64,8 @@ app.get('/getDiary2', user.getDiary2);
 app.get('/getDiary3', user.getDiary3);
 app.get('/next', user.nextPage);
 app.get('/getDiaries/:id', user.getDiaries);
-app.post('/listDiaries', user.listDiaries);
+app.get('/listDiaries', user.listDiaries);
+app.get('/viewMemories', user.viewMemories);
 
 
 //

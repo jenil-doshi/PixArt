@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js demo-2">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>BookBlock: A Content Flip Plugin - Demo 2</title>
+    <meta name="description" content="Bookblock: A Content Flip Plugin - Demo 2" />
+    <meta name="keywords" content="javascript, jquery, plugin, css3, flip, page, 3d, booklet, book, perspective" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico"> 
+    <link rel="stylesheet" type="text/css" href="/stylesheets/diary1/default.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/diary1/bookblock.css" />
+    <!-- custom demo style -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/diary1/demo2.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/diary1/calendar.css" />
+    <script src="/javascript/diary1/modernizr.custom.js"></script>
+    <style>
+    .glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.glyphicon-plus:before {
+  content: "\2b";
+  color: #333;
+}
+.ta5 {
+  border: 5px solid #765942;
+  
+}
+textarea {
+   resize: none;
+   overflow:hidden;
+}
+
+@font-face {
+font-family: 'Glyphicons Halflings';
+  src: url("glyphicons-halflings-regular");
+}
+    </style>
+
+    <script type="text/javascript">
+    function saveData(){
+
+  var obj = {
+    text1:document.getElementById('text1').value,
+    text2:document.getElementById('text2').value,
+    text3:document.getElementById('text3').value,
+    text4:document.getElementById('text4').value,
+    image1:document.getElementById('name').src,
+    image2:document.getElementById('name1').src,
+    image3:document.getElementById('name2').src,
+    image4:document.getElementById('name3').src
+
+  };
+
+    var xmlRequest;
+    if(window.XMLHttpRequest){
+      xmlRequest = new XMLHttpRequest();
+    }else{
+       xmlRequest=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+      //alert("Next");
+        xmlRequest.open('POST',"/saveDiary1",true);
+        xmlRequest.setRequestHeader("Content-type","application/json;charset=UTF-8");
+        xmlRequest.send(JSON.stringify(obj));
+    
+}
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Top Navigation -->
+      <div class="codrops-top clearfix">
+        <a class="codrops-icon codrops-icon-prev"></a>
+        <span class="right"></span>
+      </div>
+      <header>
+        <h1>Start Building your Scrapbook!!!<span>Flip through pages to add images, videos, and audio files</span></h1> 
+      </header>
+      <form method="POST" onsubmit="return saveData();">
+      <div class="main clearfix">
+        <div class="bb-custom-wrapper">
+          <div id="bb-bookblock" class="bb-bookblock">
+            <div class="bb-item">
+              <!-- <img class="bb-custom-img" src="images/demo2/1.jpg" alt="image01"/> -->
+              <!--canvas-->
+               <section>
+                            <input style="display:none;" id="i" name="fileupload" type="file"/> 
+                            <span id="fc" class="glyphicon glyphicon-plus" style="margin-left: 51%;margin-top: -4%;position: absolute;"></span>
+                            <img  src="<%=results[0].image1%>" id="name" class="media-object" alt="" width="100%" height="100%" style="margin-left: -50%;position: absolute;margin-top: 0%;"/>
+                       </section>
+              <div class="fc-calendar-wrap">
+                
+                <div class="fc-calendar-container"><div class="fc-calendar fc-five-rows"><div class="fc-head"></div>
+                <textarea class="ta5" id="text1" style="resize:0;height: 270px;width: 560px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 0%;margin-left: -50%;"><%=results[0].text1%></textarea>
+                </div></div>
+              </div>
+            </div>
+            <div class="bb-item">
+              <section>
+                            <input style="display:none;" id="i1" name="fileupload" type="file"/> 
+                            <span id="fc1" class="glyphicon glyphicon-plus" style="margin-left: 51%;margin-top: -4%;position: absolute;"></span>
+                            <img  src="<%=results[0].image2%>" id="name1" class="media-object" alt="" width="100%" height="100%" style="margin-left: -50%;position: absolute;margin-top: 0%;"/>
+                       </section>
+              <div class="fc-calendar-wrap">
+                
+                <div class="fc-calendar-container"><div class="fc-calendar fc-five-rows"><div class="fc-head"></div>
+                <textarea class="ta5" id="text2" style="resize:0;height: 270px;width: 560px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 0%;margin-left: -50%;"><%=results[0].text2%></textarea>
+                </div></div>
+              </div>
+            </div>
+            <div class="bb-item">
+              <section>
+                            <input style="display:none;" id="i2" name="fileupload" type="file"/> 
+                            <span id="fc2" class="glyphicon glyphicon-plus" style="margin-left: 51%;margin-top: -4%;position: absolute;"></span>
+                            <img  src="<%=results[0].image3%>" id="name2" class="media-object" alt="" width="100%" height="100%" style="margin-left: -50%;position: absolute;margin-top: 0%;"/>
+                       </section>
+              <div class="fc-calendar-wrap">
+                
+                <div class="fc-calendar-container"><div class="fc-calendar fc-five-rows"><div class="fc-head"></div>
+                <textarea class="ta5" id="text3" style="resize:0;height: 270px;width: 560px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 0%;margin-left: -50%;"><%=results[0].text3%></textarea>
+                </div></div>
+              </div>
+            </div>
+            <div class="bb-item">
+              <section>
+                            <input style="display:none;" id="i3" name="fileupload" type="file"/> 
+                            <span id="fc3" class="glyphicon glyphicon-plus" style="margin-left: 51%;margin-top: -4%;position: absolute;"></span>
+                            <img  src="<%=results[0].image4%>" id="name3" class="media-object" alt="" width="100%" height="100%" style="margin-left: -50%;position: absolute;margin-top: 0%;"/>
+                       </section>
+              <div class="fc-calendar-wrap">
+                
+                <div class="fc-calendar-container"><div class="fc-calendar fc-five-rows"><div class="fc-head"></div>
+                <textarea class="ta5" id="text4" style="resize:0;height: 270px;width: 560px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 0%;margin-left: -50%;">src="<%=results[0].text4%>"</textarea>
+                </div></div>
+              </div>
+            </div>          
+          </div>
+          <nav>
+            <a id="bb-nav-prev" href="#" class="bb-custom-icon bb-custom-icon-arrow-left">Previous</a>
+            <a id="bb-nav-next" href="#" class="bb-custom-icon bb-custom-icon-arrow-right">Next</a>
+          </nav>
+          <h3>Flip</h3>
+          <input type="submit">
+        </div>
+      </div>
+      </form>
+    </div><!-- /container -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/javascript/diary1/jquery.bookblock.js"></script>
+    <script>
+      $('#fc').click(function () {
+           $('#i').click();
+      });
+
+      $('#i').change(function () {
+          $('#name').html(function(){
+            return true;
+        });
+      });
+           $('#i').change(function () {
+      
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+    function imageIsLoaded(e) {          
+            $('#name').attr('src', e.target.result);
+        };
+
+        //****************************
+
+        $('#fc1').click(function () {
+           $('#i1').click();
+      });
+
+      $('#i1').change(function () {
+          $('#name1').html(function(){
+            return true;
+        });
+      });
+           $('#i1').change(function () {
+      
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded1;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+    function imageIsLoaded1(e) {          
+            $('#name1').attr('src', e.target.result);
+        };
+
+        //************************************
+
+        $('#fc2').click(function () {
+           $('#i2').click();
+      });
+
+      $('#i2').change(function () {
+          $('#name2').html(function(){
+            return true;
+        });
+      });
+           $('#i2').change(function () {
+      
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded2;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+    function imageIsLoaded2(e) {          
+            $('#name2').attr('src', e.target.result);
+        };
+    //*******************************
+
+    $('#fc3').click(function () {
+           $('#i3').click();
+      });
+
+      $('#i3').change(function () {
+          $('#name3').html(function(){
+            return true;
+        });
+      });
+           $('#i3').change(function () {
+      
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded3;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+    function imageIsLoaded3(e) {          
+            $('#name3').attr('src', e.target.result);
+        };
+
+
+
+
+
+
+      var Page = (function() {
+        
+        var config = {
+            $bookBlock : $( '#bb-bookblock' ),
+            $navNext : $( '#bb-nav-next' ),
+            $navPrev : $( '#bb-nav-prev' )
+          },
+          init = function() {
+            config.$bookBlock.bookblock( {
+              orientation : 'horizontal',
+              speed : 700
+            } );
+            initEvents();
+          },
+          initEvents = function() {
+
+            var $slides = config.$bookBlock.children();
+            
+            // add navigation events
+            config.$navNext.on( 'click touchstart', function() {
+              config.$bookBlock.bookblock( 'next' );
+              return false;
+            } );
+
+            config.$navPrev.on( 'click touchstart', function() {
+              config.$bookBlock.bookblock( 'prev' );
+              return false;
+            } );
+
+            // add keyboard events
+            $( document ).keydown( function(e) {
+              var keyCode = e.keyCode || e.which,
+                arrow = {
+                  left : 37,
+                  up : 38,
+                  right : 39,
+                  down : 40
+                };
+
+              switch (keyCode) {
+                case arrow.up:
+                  config.$bookBlock.bookblock( 'prev' );
+                  e.preventDefault();
+                  break;
+                case arrow.down:
+                  config.$bookBlock.bookblock( 'next' );
+                  e.preventDefault();
+                  break;
+              }
+
+            } );
+          };
+
+          return { init : init };
+
+      })();
+    </script>
+    <script>
+        Page.init();
+    </script>
+  </body>
+</html>

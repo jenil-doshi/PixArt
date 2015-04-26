@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js demo-4">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>BookBlock: A Content Flip Plugin - Demo 4</title>
+    <meta name="description" content="Bookblock: A Content Flip Plugin - Demo 4" />
+    <meta name="keywords" content="javascript, jquery, plugin, css3, flip, page, 3d, booklet, book, perspective" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico"> 
+    <link rel="stylesheet" type="text/css" href="/stylesheets/diary3/default.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/diary3/bookblock.css" />
+    <!-- custom demo style -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/diary3/demo4.css" />
+    <script src="/javascript/diary3/modernizr.custom.js"></script>
+    <style>
+     .glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+   color: #fff;
+   font-size:50px;
+}
+.glyphicon-plus:before {
+  content: "\2b";
+   color: #fff;
+}
+
+.glyphicon-save:before {
+  content: "\e166";
+  color: #fff;
+}
+
+textarea {
+   resize: none;
+   overflow:hidden;
+}
+@font-face {
+font-family: 'Glyphicons Halflings';
+  src: url("glyphicons-halflings-regular");
+}
+.ta10 {
+  background-image:url(/images/diary3/textarea_bg.jpg);
+  background-repeat:repeat-x;
+  background-repeat:repeat-y;
+  border:1px solid #d1c7ac;
+  color:#333333;
+  /*padding:3px;
+  margin-right:4px;
+  margin-bottom:8px;*/
+  font-family:tahoma, arial, sans-serif;
+}
+
+.ta11 {
+  background-image:url(/images/diary3/lst_bg.jpg);
+  background-repeat:repeat-x;
+  background-repeat:repeat-y;
+  border:1px solid #d1c7ac;
+  color:#ffffff;
+  /*padding:3px;
+  margin-right:4px;
+  margin-bottom:8px;*/
+  font-family:tahoma, arial, sans-serif;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+    </style>
+    <script type="text/javascript">
+    function saveData(){
+
+  var obj = {
+    text1:document.getElementById('text1').value,
+    text2:document.getElementById('text2').value,
+    text3:document.getElementById('text3').value,
+    text4:document.getElementById('text4').value,
+    text5:document.getElementById('text5').value,
+    text6:document.getElementById('text6').value,
+    text7:document.getElementById('text7').value,
+    image1:document.getElementById('name').src,
+    image2:document.getElementById('name1').src,
+    image3:document.getElementById('name2').src,
+    image4:document.getElementById('name3').src
+  };
+
+    var xmlRequest;
+    if(window.XMLHttpRequest){
+      xmlRequest = new XMLHttpRequest();
+    }else{
+       xmlRequest=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+      //alert("Next");
+        xmlRequest.open('POST',"/saveDiary3",true);
+        xmlRequest.setRequestHeader("Content-type","application/json;charset=UTF-8");
+        xmlRequest.send(JSON.stringify(obj));
+    
+}
+    </script>
+  </head>
+  <body>    
+    <!-- <form> -->
+    <div class="container">
+      <!-- <form> -->
+      <div class="bb-custom-wrapper">
+        <div id="bb-bookblock" class="bb-bookblock">
+          
+          <div class="bb-item">
+            <div class="bb-custom-firstpage">
+              <img src="/images/diary3/bg.jpg" style="margin-top: -30%;margin-left: -4%;width: 103%;height: 200%;"/>
+            </div>
+            <div class="bb-custom-side">
+              <p>Start Building your diary now!!!</p>
+            </div>
+          </div>
+          
+          <div class="bb-item">
+            <div class="bb-custom-side">
+
+              <img src="/images/diary3/p1_bg.jpg" style="margin-top: -30%;margin-left: -4%;width: 103%;height: 200%;">
+              <section>
+                            <input style="display:none;" id="i" name="fileupload" type="file"/> 
+                            <span id="fc" class="glyphicon glyphicon-plus" style="margin-left: -10%;margin-top: 5%;position: absolute;"></span>
+                            <!-- <img  id="name" class="media-object" alt="" width="30%" height="85%" style="margin-left: -41%;position: absolute;margin-top: -19%;"/> -->
+                            <video controls id="name" class="media-object" width="30%" height="85%" style="margin-left: -41%;position: absolute;margin-top: -19%;"/>
+                </section>
+            </div>
+            <div class="bb-custom-side">
+               <textarea id="text1" style="border: 50%;resize:0;height: 100px;width: 600px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 2%;margin-left: -19%;"></textarea>
+
+               <textarea id="text2" style="border: 50%;resize:0;height: 450px;width: 600px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 15%;margin-left: -19%;"></textarea>
+            </div>
+          </div>
+          <div class="bb-item">
+            <div class="bb-custom-side">
+              <img src="/images/diary3/p2_top_1_bg.jpg" style="margin-left: -4%;width: 167%;">
+              <img src="/images/diary3/p2_top_2_bg.jpg" style="margin-left: -9%;width: 167%;">
+              <img src="/images/diary3/p2_bg.jpg">
+              <img src="/images/diary3/p2_bottom_1_bg.jpg" style="margin-left:-11%;width: 167%;">
+              <img src="/images/diary3/p2_bottom_2_bg.jpg" style="margin-left:-11%;width: 167%;">
+            </div>
+            <div class="bb-custom-side">
+               <textarea id="text3" style="border: 50%;resize:0;height: 100px;width: 600px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 2%;margin-left: -19%;"></textarea>
+               <textarea id="text4" style="border: 50%;resize:0;height: 450px;width: 600px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 15%;margin-left: -19%;"></textarea>
+            </div>
+          </div>
+          <div class="bb-item">
+            <div class="bb-custom-side">
+              <img src="/images/diary3/p3_left_bg.jpg" style="margin-top: -30%;margin-left: -3%;width: 103%;height: 200%;"/>
+               <input style="display:none;" id="i1" name="fileupload" type="file"/> 
+                            <span id="fc1" class="glyphicon glyphicon-plus" style="margin-left: -28%;margin-top: 1%;position: absolute;"></span>
+                            <img  id="name1" class="media-object" alt="" width="20%" height="30%" style="margin-left: -50%;position: absolute;margin-top: 3%;"/>
+
+                             <input style="display:none;" id="i2" name="fileupload" type="file"/> 
+                            <span id="fc2" class="glyphicon glyphicon-plus" style="margin-left: -10%;margin-top: 15%;position: absolute;"></span>
+                            <img  id="name2" class="media-object" alt="" width="30%" height="30%" style="margin-left: -41%;position: absolute;margin-top: 16%;"/>
+
+                             <input style="display:none;" id="i3" name="fileupload" type="file"/> 
+                            <span id="fc3" class="glyphicon glyphicon-plus" style="margin-left: -19%;margin-top: 42%;position: absolute;"></span>
+                            <img  id="name3" class="media-object" alt="" width="20%" height="30%" style="margin-left: -50%;position: absolute;margin-top: 29%;"/>
+
+            </div>
+            <div class="bb-custom-side">
+            <img src="/images/diary3/p3_text_bg_inverted.jpg" style="margin-left: 0%;width: 114%;margin-top: 0;"/>
+            <img src="/images/diary3/p3_text_bg.jpg" style="margin-left: 0%;width: 114%;margin-top: 0%;"/>
+            <textarea class="ta10" id="text5" style="border: 50%;resize:0;height: 539px;width: 412px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: -20%;margin-left: -39%;"></textarea>
+            </div>
+          </div>
+          <div class="bb-item">
+            <div class="bb-custom-side">
+              <img src="/images/diary3/p4_left_bg.jpg" style="margin-top: -30%;margin-left: -3%;width: 103%;height: 200%;"/>
+               <input style="display:none;" id="i4" name="fileupload" type="file"/> 
+                            <span id="fc4" class="glyphicon glyphicon-plus" style="margin-left: -3%;margin-top: 1%;position: absolute;"></span>
+                            <img  id="name4" class="media-object" alt="" width="40%" height="50%" style="margin-left: -46%;position: absolute;margin-top: 3%;"/>
+            </div>
+            <div class="bb-custom-side">
+              <img src="/images/diary3/p4_right_bg.jpg" style="margin-top: -30%;margin-left: -3%;width: 103%;height: 200%;"/>
+               <textarea class="ta11" id="text6" style="resize:0;height: 100px;width: 600px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 2%;margin-left: -47%;border-color: transparent;border-left: transparent;"></textarea>
+
+               <textarea class="ta11" id="text7" style="resize:0;height: 450px;width: 600px;font-family: bradley hand itc;font-size: 16px;position: absolute;margin-top: 15%;margin-left: -47%;border-color: transparent;border-left: transparent;"></textarea>
+            </div>
+          </div>
+          <div class="bb-item">
+            <div class="bb-custom-firstpage">
+              END
+            </div>
+            <div class="bb-custom-side">
+              <img src="/images/diary3/bg.jpg" style="margin-top: -30%;margin-left: -4%;width: 103%;height: 200%;"/>
+            </div>
+          </div>
+
+        </div>
+
+        <nav>
+          <a id="bb-nav-first" href="#" class="bb-custom-icon bb-custom-icon-first">First page</a>
+          <a id="bb-nav-prev" href="#" class="bb-custom-icon bb-custom-icon-arrow-left">Previous</a>
+          <a id="bb-nav-next" href="#" class="bb-custom-icon bb-custom-icon-arrow-right">Next</a>
+          <a id="bb-nav-last" href="#" class="bb-custom-icon bb-custom-icon-last">Last page</a>
+          <input type="button" onclick="return saveData();" class="btn btn-default" value="Save" style="margin-top: -3%;background-color: #1baede;color: #ffffff;"></input>
+          <!-- <a href="#"><span class="glyphicon glyphicon-save"></span> Save</a> -->
+        </nav>
+      </div>
+  <!--   </form> -->
+    </div>
+  <!-- </form> --><!-- container -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/javascript/diary3/jquerypp.custom.js"></script>
+    <script src="/javascript/diary3/jquery.bookblock.js"></script>
+    <script>
+
+     $('#fc').click(function () {
+           $('#i').click();
+      });
+
+      $('#i').change(function () {
+          $('#name').html(function(){
+            return true;
+        });
+      });
+           $('#i').change(function () {
+      
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+    function imageIsLoaded(e) {          
+            $('#name').attr('src', e.target.result);
+        };
+
+
+
+ $('#fc1').click(function () {
+           $('#i1').click();
+      });
+
+      $('#i1').change(function () {
+          $('#name1').html(function(){
+            return true;
+        });
+      });
+           $('#i1').change(function () {
+      
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded1;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+    function imageIsLoaded1(e) {          
+            $('#name1').attr('src', e.target.result);
+        };
+
+ $('#fc2').click(function () {
+           $('#i2').click();
+      });
+
+      $('#i2').change(function () {
+          $('#name2').html(function(){
+            return true;
+        });
+      });
+           $('#i2').change(function () {
+      
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded2;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+    function imageIsLoaded2(e) {          
+            $('#name2').attr('src', e.target.result);
+        };
+
+         $('#fc3').click(function () {
+           $('#i3').click();
+      });
+
+      $('#i3').change(function () {
+          $('#name3').html(function(){
+            return true;
+        });
+      });
+           $('#i3').change(function () {
+      
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded3;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+    function imageIsLoaded3(e) {          
+            $('#name3').attr('src', e.target.result);
+        };
+
+
+         $('#fc4').click(function () {
+           $('#i4').click();
+      });
+
+      $('#i4').change(function () {
+          $('#name4').html(function(){
+            return true;
+        });
+      });
+           $('#i4').change(function () {
+      
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded4;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+    function imageIsLoaded4(e) {          
+            $('#name4').attr('src', e.target.result);
+        };
+
+
+
+      var Page = (function() {
+        
+        var config = {
+            $bookBlock : $( '#bb-bookblock' ),
+            $navNext : $( '#bb-nav-next' ),
+            $navPrev : $( '#bb-nav-prev' ),
+            $navFirst : $( '#bb-nav-first' ),
+            $navLast : $( '#bb-nav-last' )
+          },
+          init = function() {
+            config.$bookBlock.bookblock( {
+              speed : 1000,
+              shadowSides : 0.8,
+              shadowFlip : 0.4
+            } );
+            initEvents();
+          },
+          initEvents = function() {
+            
+            var $slides = config.$bookBlock.children();
+
+            // add navigation events
+            config.$navNext.on( 'click touchstart', function() {
+              config.$bookBlock.bookblock( 'next' );
+              return false;
+            } );
+
+            config.$navPrev.on( 'click touchstart', function() {
+              config.$bookBlock.bookblock( 'prev' );
+              return false;
+            } );
+
+            config.$navFirst.on( 'click touchstart', function() {
+              config.$bookBlock.bookblock( 'first' );
+              return false;
+            } );
+
+            config.$navLast.on( 'click touchstart', function() {
+              config.$bookBlock.bookblock( 'last' );
+              return false;
+            } );
+            
+            // add swipe events
+            $slides.on( {
+              'swipeleft' : function( event ) {
+                config.$bookBlock.bookblock( 'next' );
+                return false;
+              },
+              'swiperight' : function( event ) {
+                config.$bookBlock.bookblock( 'prev' );
+                return false;
+              }
+            } );
+
+            // add keyboard events
+            $( document ).keydown( function(e) {
+              var keyCode = e.keyCode || e.which,
+                arrow = {
+                  left : 37,
+                  up : 38,
+                  right : 39,
+                  down : 40
+                };
+
+              switch (keyCode) {
+                case arrow.left:
+                  config.$bookBlock.bookblock( 'prev' );
+                  break;
+                case arrow.right:
+                  config.$bookBlock.bookblock( 'next' );
+                  break;
+              }
+            } );
+          };
+
+          return { init : init };
+
+      })();
+    </script>
+    <script>
+        Page.init();
+    </script>
+  </body>
+</html>

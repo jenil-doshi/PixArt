@@ -210,7 +210,7 @@ exports.getDiary1 = function(req,res)
 		{
 			//console.log("image Saved Successfully");
 			//console.log(results[0]);
-			res.render('next.ejs', {results: results});
+			res.render('diary1/next.ejs', {results: results});
 		}  
 	},imgQuery);
 };
@@ -228,7 +228,7 @@ exports.getDiary2 = function(req,res)
 		}
 		else 
 		{
-			res.render('next.ejs', {results: results});
+			res.render('diary2/next.ejs', {results: results});
 		}  
 	},imgQuery);
 };
@@ -236,7 +236,7 @@ exports.getDiary2 = function(req,res)
 exports.getDiary3 = function(req,res)
 {
 	
-	var imgQuery="select * from 280.diary3";
+	var imgQuery="select * from diary3";
 	
 
 	
@@ -246,7 +246,7 @@ exports.getDiary3 = function(req,res)
 		}
 		else 
 		{
-			res.render('next.ejs', {results: results});
+			res.render('diary3/next.ejs', {results: results});
 		}  
 	},imgQuery);
 };
@@ -381,10 +381,10 @@ exports.displayCollage4 = function(req,res)
 			res.render('next.ejs', {results: results});
 		}  
 	},imgQuery);
-<<<<<<< HEAD
+
 };
-=======
-};
+
+
 
 exports.saveCollage5 = function(req,res)
 {
@@ -509,7 +509,7 @@ var finalobj = {};
 
 exports.listDiaries = function(req,res){
 
-		var userId = req.body.id;
+		var userId = req.session.userId;
 var query1="select tid from diary1 where userId="+userId;
 var query2 = "select id from diary2 where userId="+userId;
 var query3 = "select id from diary3 where userId="+userId;
@@ -576,10 +576,14 @@ var diary3 = {};
 				console.log("Results 1:"+JSON.stringify(diary1));
 				console.log("Results 2:"+JSON.stringify(diary2));
 				console.log("Results 3:"+JSON.stringify(diary3));
-				res.render('next.ejs',{diary1:diary1,diary2:diary2,diary3:diary3});
+				res.render('listDiary.ejs',{diary1:diary1,diary2:diary2,diary3:diary3});
 			}
 		
 
 	},query1);
 }
->>>>>>> aba2569248d61c2765ad97b50ccc09a08ad89347
+
+exports.viewMemories = function(req,res){
+
+res.render("viewMemories.ejs",{userId:req.session.userId});
+}
