@@ -24,7 +24,7 @@ mysql.dbcall(function(err,results){
 					console.log("Session Email ID: " + req.session.email);
 					console.log("Session UserId ID: " + req.session.userId);
 					console.log("Login Successfully");
-					res.render('collage4/collage4', {results:results});
+					res.render('second', {title:'PixArt'});
 					
 				}  
 				else
@@ -56,7 +56,7 @@ var query = "insert into user_info (name,password,email) values ('"+name+"','"+p
 		else 
 		{
 			console.log("Data Saved Successfully");
-			res.send({"save":"Success"});
+			res.render('second', {title:'PixArt'});
 		}  
 	},query);
 

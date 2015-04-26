@@ -213,7 +213,7 @@ exports.saveCollage2 = function(req,res)
 	var image4=req.body.image4;
 	var collageId=req.body.collageId;
 	
-	var imgQuery="insert into two_collage values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
+	var imgQuery="insert into two_collage (userid, collageid,image1,image2) values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"')";
 	
 	console.log("query for image is: "+imgQuery);
 	
@@ -256,7 +256,7 @@ exports.saveCollage3 = function(req,res)
 	var image4=req.body.image4;
 	var collageId=req.body.collageId;
 	
-	var imgQuery="insert into three_collage values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
+	var imgQuery="insert into three_collage (userid, collageid,image1,image2,image3) values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"')";
 	
 	console.log("query for image is: "+imgQuery);
 	
@@ -299,7 +299,7 @@ exports.saveCollage4 = function(req,res)
 	var image4=req.body.image4;
 	var collageId=req.body.collageId;
 	
-	var imgQuery="insert into four_collage values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
+	var imgQuery="insert into four_collage (userid, collageid,image1,image2,image3,image4) values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
 	
 	console.log("query for image is: "+imgQuery);
 	
@@ -319,49 +319,6 @@ exports.displayCollage4 = function(req,res)
 {
 	
 	var imgQuery="select image1 from four_collage";
-	
-	console.log("query for image is: "+imgQuery);
-	
-	mysql.dbcall(function(err,results){
-		if(err){
-			throw err;
-		}
-		else 
-		{
-			console.log("image Saved Successfully");
-			res.render('next.ejs', {results: results});
-		}  
-	},imgQuery);
-};
-
-exports.saveCollage5 = function(req,res)
-{
-	var image1=req.body.image1;
-	var image2=req.body.image2;
-	var image3=req.body.image3;
-	var image4=req.body.image4;
-	var collageId=req.body.collageId;
-	
-	var imgQuery="insert into five_collage values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
-	
-	console.log("query for image is: "+imgQuery);
-	
-	mysql.dbcall(function(err,results){
-		if(err){
-			throw err;
-		}
-		else 
-		{
-			console.log("images Saved Successfully");
-			alert({"save":"Success"});
-		}  
-	},imgQuery);
-};
-
-exports.displayCollage5 = function(req,res)
-{
-	
-	var imgQuery="select image1 from five_collage";
 	
 	console.log("query for image is: "+imgQuery);
 	
