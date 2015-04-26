@@ -1,11 +1,32 @@
 var mysql = require('./mysql');
 var ejs = require("ejs");
-var express = require('express');
+var express = require('express');  
+/*var mysqlUtilities = require('mysql-utilities');*/
 
-exports.list = function(req, res){
-  res.send("respond with a resource");
+/*
+function getConnection(){
+	var connection = mysql.createConnection({
+	    host     : 'localhost',
+	    user     : 'root',
+	    password : 'root',
+	    database : '280'
+	});
+	return connection;
+}
+*/
+exports.displayDiary = function(req,res){
+
+var diaryId = req.params.id;
+console.log("DiaryId is: "+diaryId);
+ if(diaryId==1){
+		res.render('diary1/index.ejs',{});
+}
+else if(diaryId==2){
+res.render('diary2/index.ejs',{});
+}else if(diaryId==3){
+res.render('diary3/index.ejs',{});
+}
 };
-
 
 exports.saveImageDiary2 = function(req,res)
 {
@@ -35,7 +56,7 @@ exports.saveImageDiary2 = function(req,res)
 	var text15=req.body.text15;
 	var text16=req.body.text16;
 
-	var query="insert into 280.diary2 (image1,image2,image3,image4,image5,image6,image7,image8,text1,text2,text3,text4,text5,text6,text7,text8,text9,text10,text11,text12,text13,text14,text15,text16) values ('"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+image5+"','"+image6+"','"+image7+"','"+image8+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"','"+text5+"','"+text6+"','"+text7+"','"+text8+"','"+text9+"','"+text10+"','"+text11+"','"+text12+"','"+text13+"','"+text14+"','"+text15+"','"+text16+"')";
+	var query="insert into diary2 (image1,image2,image3,image4,image5,image6,image7,image8,text1,text2,text3,text4,text5,text6,text7,text8,text9,text10,text11,text12,text13,text14,text15,text16) values ('"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+image5+"','"+image6+"','"+image7+"','"+image8+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"','"+text5+"','"+text6+"','"+text7+"','"+text8+"','"+text9+"','"+text10+"','"+text11+"','"+text12+"','"+text13+"','"+text14+"','"+text15+"','"+text16+"')";
 	
 	
 console.log("query for text1 is: "+text1);
@@ -107,9 +128,7 @@ console.log("query for text1 is: "+text7);
 
 exports.saveImageDiary1 = function(req,res)
 {
-	//console.log(req);
-	//var img=req.param("img");
-
+	
 	var image1=req.body.image1;
 	var image2=req.body.image2;
 	var image3=req.body.image3;
@@ -118,38 +137,68 @@ exports.saveImageDiary1 = function(req,res)
 	var text2=req.body.text2;
 	var text3=req.body.text3;
 	var text4=req.body.text4;
-	var text5=req.body.text5;
-	var text6=req.body.text6;
-	var text7=req.body.text7;
-	var text8=req.body.text8;
-	var query="insert into 280.diary1 (image1,image2,image3,image4,text1,text2,text3,text4,text5,text6,text7,text8) values ('"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"','"+text5+"','"+text6+"','"+text7+"','"+text8+"')";
+	var userId =1;
+	var diaryId=1;
+	//console.log(text1);
+	var query = "select tid from diary1 where userId="+userId+" and diaryId="+diaryId;
+	//var query = "UPDATE diary1 set text1='"+text1+"' ,text2='"+text2+"' ,text3='"+text3+"',text4='"+text4+"',image1='"+image1+"',image2='"+image2+"',image3='"+image3+"',image4='"+image4+"' where userId="+userId+" and diaryId="+diaryId;
+	var connection=getConnection();
 	
-	
-console.log("query for text1 is: "+text1);
-console.log("query for text2 is: "+text2);
-console.log("query for text1 is: "+text3);
-console.log("query for text2 is: "+text4);
-console.log("query for text1 is: "+text5);
-console.log("query for text2 is: "+text6);
-console.log("query for text1 is: "+text7);
-console.log("query for text2 is: "+text8);
-	
-	mysql.dbcall(function(err,results){
+	connection.query(query, function(err, rows, fields) {
+
+		console.log("inside db conn");
 		if(err){
-			throw err;
+			console.log("ERROR: " + err.message);
+			console.log("inside db conn error");
 		}
-		else 
-		{
-			console.log("image Saved Successfully");
-			res.send({"save":"Success"});
-		}  
-	},query);
+		else {
+				if( Object.keys(rows).length==0){
+					var insertQuery = "insert into diary1 (userId,diaryId,image1,image2,image3,image4,text1,text2,text3,text4) values ('"+userId+"','"+diaryId+"','"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"')";
+					connection.query(insertQuery,function(err,rows){
+						if(err){
+								console.log("ERROR: " + err.message);
+								console.log("Error in inserting");
+						}else{
+							console.log("inserted successfully");
+						}
+connection.end();
+
+					});
+
+				}
+				else{
+
+					var updateQuery = "UPDATE diary1 set text1='"+text1+"' ,text2='"+text2+"' ,text3='"+text3+"',text4='"+text4+"',image1='"+image1+"',image2='"+image2+"',image3='"+image3+"',image4='"+image4+"' where userId="+userId+" and diaryId="+diaryId;
+					connection.query(updateQuery,function(err,rows){
+
+					if(err){
+								console.log("ERROR: " + err.message);
+								console.log("Error in updating");
+						}else{
+							console.log("updated successfully");
+						}
+connection.end();
+					});
+					
+				}
+
+
+		}
+
+
+	});
+		
+	
+	//connection.end();
 };
+
+
+
 
 exports.getDiary1 = function(req,res)
 {
 	
-	var imgQuery="select * from 280.diary1";
+	var imgQuery="select * from diary1";
 	
 
 	
@@ -169,7 +218,7 @@ exports.getDiary1 = function(req,res)
 exports.getDiary2 = function(req,res)
 {
 	
-	var imgQuery="select * from 280.diary2";
+	var imgQuery="select * from diary2";
 	
 
 	
@@ -249,3 +298,157 @@ exports.getImage = function(req,res)
 		}  
 	},imgQuery);
 };
+
+
+exports.nextPage = function(req,res){
+
+	res.render('test.ejs',{});
+
+};
+
+exports.getDiaries = function(req,res){
+	var userId = req.params.id;
+var query1="select tid from diary1 where userId="+userId;
+var query2 = "select id from diary2 where userId="+userId;
+var query3 = "select id from diary3 where userId="+userId;
+var finalobj = {};
+	mysql.dbcall(function(err,results1){
+
+		if(err){
+
+			throw err;
+
+		}else{
+			if(Object.keys(results1).length>0){
+				finalobj.diary1 = 1;
+				console.log("Diary1 Final obj is: "+JSON.stringify(finalobj));
+
+			}
+		}
+
+	},query1);
+	mysql.dbcall(function(err,results2){
+
+		if(err){
+
+			throw err;
+
+		}else{
+			if(Object.keys(results2).length>0){
+				finalobj.diary2 = 0;
+				console.log("Final obj is: "+JSON.stringify(finalobj));
+			}
+		}
+
+	},query2);
+
+	mysql.dbcall(function(err,results3){
+
+		if(err){
+
+			throw err;
+
+		}else{
+			if(Object.keys(results3).length>0){
+				finalobj.diary3 = 1;
+				console.log("Diary3 Final obj is: "+JSON.stringify(finalobj));
+			}
+		}
+
+	},query3);
+	
+	//res.render('next.ejs',{finalobj:JSON.stringify(finalobj)});
+
+	//console.log("Async call: "+JSON.stringify(finalobj));
+
+	mysql.dbcall(function(err,results4){
+
+		if(err){
+
+			throw err;
+
+		}else{
+			
+				res.send('next.ejs',{finalobj:JSON.stringify(finalobj)});
+			}
+		
+
+	},query1);
+	
+};
+
+exports.listDiaries = function(req,res){
+
+		var userId = req.body.id;
+var query1="select tid from diary1 where userId="+userId;
+var query2 = "select id from diary2 where userId="+userId;
+var query3 = "select id from diary3 where userId="+userId;
+var finalobj = {};
+var diary1 = {};
+var diary2 = {};
+var diary3 = {};
+	mysql.dbcall(function(err,results1){
+
+		if(err){
+
+			throw err;
+
+		}else{
+			if(Object.keys(results1).length>0){
+				diary1 = results1
+				//console.log("Diary1 Final obj is: "+JSON.stringify(finalobj));
+				//console.log("Results: "+results1);
+				//console.log("String: "+JSON.stringify(results1));
+				//console.log("JSON: "+JSON.parse(JSON.stringify(results1)));
+				//complete....res.render('next.ejs',{finalobj:results1});
+			}
+		}
+
+	},query1);
+	mysql.dbcall(function(err,results2){
+
+		if(err){
+
+			throw err;
+
+		}else{
+			if(Object.keys(results2).length>0){
+				diary2 = results2;
+				//console.log("Final obj is: "+JSON.stringify(finalobj));
+			}
+		}
+
+	},query2);
+	mysql.dbcall(function(err,results3){
+
+		if(err){
+
+			throw err;
+
+		}else{
+			if(Object.keys(results3).length>0){
+				diary3 = results3;
+				//console.log("Diary3 Final obj is: "+JSON.stringify(finalobj));
+			}
+		}
+
+	},query3);
+	
+	
+
+	mysql.dbcall(function(err,results4){
+
+		if(err){
+
+			throw err;
+
+		}else{
+				console.log("Results 1:"+JSON.stringify(diary1));
+				console.log("Results 2:"+JSON.stringify(diary2));
+				console.log("Results 3:"+JSON.stringify(diary3));
+				res.render('next.ejs',{diary1:diary1,diary2:diary2,diary3:diary3});
+			}
+		
+
+	},query1);
+}

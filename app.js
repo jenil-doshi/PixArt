@@ -29,14 +29,18 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+
 app.get('/collage1', routes.collage1);
+app.get('/diary1/:id', user.displayDiary);
 app.post('/saveDiary1', user.saveImageDiary1);
 app.post('/saveDiary2', user.saveImageDiary2);
 app.post('/saveDiary3', user.saveImageDiary3);
 app.get('/getDiary1', user.getDiary1);
 app.get('/getDiary2', user.getDiary2);
 app.get('/getDiary3', user.getDiary3);
+app.get('/next', user.nextPage);
+app.get('/getDiaries/:id', user.getDiaries);
+app.post('/listDiaries', user.listDiaries);
 
 //collage
 
@@ -49,3 +53,4 @@ app.post('/signUp',auth.signUp);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+

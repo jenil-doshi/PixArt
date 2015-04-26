@@ -1,0 +1,29 @@
+<!Doctype html>
+<head>
+<title>
+Test
+</title>
+<script type="text/javascript">
+function showDiaries(){
+	
+	  var xmlRequest;
+    if(window.XMLHttpRequest){
+      xmlRequest = new XMLHttpRequest();
+    }else{
+       xmlRequest=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+      //alert("Next");
+        xmlRequest.open('GET',"/getDiaries/1",true);
+        xmlRequest.setRequestHeader("Content-type","application/json;charset=UTF-8");
+        xmlRequest.send(null);
+        //console.log("hello");
+}
+</script>
+</head>
+<body>
+<form method="POST" action="/listDiaries">
+  <input type="text" value="1" name="id" id="id">
+<input type="submit"/>
+</form>
+</body>
+</html>
