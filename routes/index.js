@@ -18,7 +18,3 @@ exports.collage3 = function(req, res){
 exports.collage4 = function(req, res){
   res.render('collage4/collage4');
 };
-
-exports.collage5 = function(req, res){
-  res.render('collage5/collage5');
-};
