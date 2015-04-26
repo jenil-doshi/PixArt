@@ -16,16 +16,16 @@ function getConnection(){
 */
 exports.displayDiary = function(req,res){
 
-var diaryId = req.params.id;
-console.log("DiaryId is: "+diaryId);
- if(diaryId==1){
+	var diaryId = req.params.id;
+	console.log("DiaryId is: "+diaryId);
+	if(diaryId==1){
 		res.render('diary1/index.ejs',{});
-}
-else if(diaryId==2){
-res.render('diary2/index.ejs',{});
-}else if(diaryId==3){
-res.render('diary3/index.ejs',{});
-}
+	}
+	else if(diaryId==2){
+		res.render('diary2/index.ejs',{});
+	}else if(diaryId==3){
+		res.render('diary3/index.ejs',{});
+	}
 };
 
 exports.saveImageDiary2 = function(req,res)
@@ -59,22 +59,22 @@ exports.saveImageDiary2 = function(req,res)
 	var query="insert into diary2 (image1,image2,image3,image4,image5,image6,image7,image8,text1,text2,text3,text4,text5,text6,text7,text8,text9,text10,text11,text12,text13,text14,text15,text16) values ('"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+image5+"','"+image6+"','"+image7+"','"+image8+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"','"+text5+"','"+text6+"','"+text7+"','"+text8+"','"+text9+"','"+text10+"','"+text11+"','"+text12+"','"+text13+"','"+text14+"','"+text15+"','"+text16+"')";
 	
 	
-console.log("query for text1 is: "+text1);
-console.log("query for text2 is: "+text2);
-console.log("query for text1 is: "+text3);
-console.log("query for text2 is: "+text4);
-console.log("query for text1 is: "+text5);
-console.log("query for text2 is: "+text6);
-console.log("query for text1 is: "+text7);
-console.log("query for text2 is: "+text8);
-console.log("query for text2 is: "+text9);
-console.log("query for text2 is: "+text10);
-console.log("query for text2 is: "+text11);
-console.log("query for text2 is: "+text12);
-console.log("query for text2 is: "+text13);
-console.log("query for text2 is: "+text14);
-console.log("query for text2 is: "+text15);
-console.log("query for text2 is: "+text16);
+	console.log("query for text1 is: "+text1);
+	console.log("query for text2 is: "+text2);
+	console.log("query for text1 is: "+text3);
+	console.log("query for text2 is: "+text4);
+	console.log("query for text1 is: "+text5);
+	console.log("query for text2 is: "+text6);
+	console.log("query for text1 is: "+text7);
+	console.log("query for text2 is: "+text8);
+	console.log("query for text2 is: "+text9);
+	console.log("query for text2 is: "+text10);
+	console.log("query for text2 is: "+text11);
+	console.log("query for text2 is: "+text12);
+	console.log("query for text2 is: "+text13);
+	console.log("query for text2 is: "+text14);
+	console.log("query for text2 is: "+text15);
+	console.log("query for text2 is: "+text16);
 	
 	mysql.dbcall(function(err,results){
 		if(err){
@@ -106,13 +106,13 @@ exports.saveImageDiary3 = function(req,res)
 	var query="insert into 280.diary3 (image1,image2,image3,image4,text1,text2,text3,text4,text5,text6,text7) values ('"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"','"+text5+"','"+text6+"','"+text7+"')";
 	
 	
-console.log("query for text1 is: "+text1);
-console.log("query for text2 is: "+text2);
-console.log("query for text1 is: "+text3);
-console.log("query for text2 is: "+text4);
-console.log("query for text1 is: "+text5);
-console.log("query for text2 is: "+text6);
-console.log("query for text1 is: "+text7);
+	console.log("query for text1 is: "+text1);
+	console.log("query for text2 is: "+text2);
+	console.log("query for text1 is: "+text3);
+	console.log("query for text2 is: "+text4);
+	console.log("query for text1 is: "+text5);
+	console.log("query for text2 is: "+text6);
+	console.log("query for text1 is: "+text7);
 	
 	mysql.dbcall(function(err,results){
 		if(err){
@@ -152,43 +152,43 @@ exports.saveImageDiary1 = function(req,res)
 			console.log("inside db conn error");
 		}
 		else {
-				if( Object.keys(rows).length==0){
-					var insertQuery = "insert into diary1 (userId,diaryId,image1,image2,image3,image4,text1,text2,text3,text4) values ('"+userId+"','"+diaryId+"','"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"')";
-					connection.query(insertQuery,function(err,rows){
-						if(err){
-								console.log("ERROR: " + err.message);
-								console.log("Error in inserting");
-						}else{
-							console.log("inserted successfully");
-						}
-connection.end();
+			if( Object.keys(rows).length==0){
+				var insertQuery = "insert into diary1 (userId,diaryId,image1,image2,image3,image4,text1,text2,text3,text4) values ('"+userId+"','"+diaryId+"','"+image1+"','"+image2+"','"+image3+"','"+image4+"','"+text1+"','"+text2+"','"+text3+"','"+text4+"')";
+				connection.query(insertQuery,function(err,rows){
+					if(err){
+						console.log("ERROR: " + err.message);
+						console.log("Error in inserting");
+					}else{
+						console.log("inserted successfully");
+					}
+					connection.end();
 
-					});
+				});
 
-				}
-				else{
+			}
+			else{
 
-					var updateQuery = "UPDATE diary1 set text1='"+text1+"' ,text2='"+text2+"' ,text3='"+text3+"',text4='"+text4+"',image1='"+image1+"',image2='"+image2+"',image3='"+image3+"',image4='"+image4+"' where userId="+userId+" and diaryId="+diaryId;
-					connection.query(updateQuery,function(err,rows){
+				var updateQuery = "UPDATE diary1 set text1='"+text1+"' ,text2='"+text2+"' ,text3='"+text3+"',text4='"+text4+"',image1='"+image1+"',image2='"+image2+"',image3='"+image3+"',image4='"+image4+"' where userId="+userId+" and diaryId="+diaryId;
+				connection.query(updateQuery,function(err,rows){
 
 					if(err){
-								console.log("ERROR: " + err.message);
-								console.log("Error in updating");
-						}else{
-							console.log("updated successfully");
-						}
-connection.end();
-					});
-					
-				}
+						console.log("ERROR: " + err.message);
+						console.log("Error in updating");
+					}else{
+						console.log("updated successfully");
+					}
+					connection.end();
+				});
+				
+			}
 
 
 		}
 
 
 	});
-		
-	
+
+
 	//connection.end();
 };
 
@@ -346,11 +346,28 @@ exports.saveCollage4 = function(req,res)
 	var image2=req.body.image2;
 	var image3=req.body.image3;
 	var image4=req.body.image4;
+	var image5=req.body.image5;
+	var image6=req.body.image6;
+	var image7=req.body.image7;
+	var image8=req.body.image8;
 	var collageId=req.body.collageId;
+
+	if(collageId == "4_1")
+	{
+		console.log("inside 4_1");
+		var chkImgQuery="select * from four_collage where collageid='"+collageId+"' and userid='"+req.session.userId+"'";
+		var insertImgQuery="insert into four_collage (userid, collageid,image1,image2,image3,image4) values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
+		var updateImgQuery="update four_collage set image1='"+image1+"', image2='"+image2+"', image3='"+image3+"', image4='"+image4+"' where userid='"+req.session.userId+"' and collageid='"+collageId+"'";
+	}
+	else if(collageId == "4_2")	
+	{
+		console.log("inside 4_2");
+		var chkImgQuery="select * from four_collage where collageid='"+collageId+"' and userid='"+req.session.userId+"'";
+		var insertImgQuery="insert into four_collage (userid, collageid,image1,image2,image3,image4) values('"+req.session.userId+"','"+collageId+"','"+image5+"', '"+image6+"', '"+image7+"', '"+image8+"')";
+		var updateImgQuery="update four_collage set image1='"+image5+"', image2='"+image6+"', image3='"+image7+"', image4='"+image8+"' where userid='"+req.session.userId+"' and collageid='"+collageId+"'";
 	
-	var imgQuery="insert into four_collage (userid, collageid,image1,image2,image3,image4) values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
-	
-	console.log("query for image is: "+imgQuery);
+	}
+	//console.log("query for image is: "+imgQuery);
 	
 	mysql.dbcall(function(err,results){
 		if(err){
@@ -358,16 +375,43 @@ exports.saveCollage4 = function(req,res)
 		}
 		else 
 		{
-			console.log("images Saved Successfully");
-			alert({"save":"Success"});
+			console.log("inside chsck query");
+			if(results.length > 0)
+			{
+				mysql.dbcall(function(err,results){
+					if(err){
+						throw err;
+					}
+					else 
+					{
+						console.log("inside update query");
+						console.log("images updated Successfully");
+						res.render('second', {title:'PixArt'});
+					}  
+				},updateImgQuery);
+			}
+			else
+			{
+				mysql.dbcall(function(err,results){
+					if(err){
+						throw err;
+					}
+					else 
+					{
+						console.log("inside insert query");
+						console.log("images Saved Successfully");
+						res.render('second', {title:'PixArt'});
+					}  
+				},insertImgQuery);
+			}
 		}  
-	},imgQuery);
+	},chkImgQuery);
 };
 
 exports.displayCollage4 = function(req,res)
 {
 	
-	var imgQuery="select image1 from four_collage";
+	var imgQuery="select * from four_collage where userid='"+req.session.userId+"'";
 	
 	console.log("query for image is: "+imgQuery);
 	
@@ -377,54 +421,10 @@ exports.displayCollage4 = function(req,res)
 		}
 		else 
 		{
-			console.log("image Saved Successfully");
-			res.render('next.ejs', {results: results});
-		}  
-	},imgQuery);
-<<<<<<< HEAD
-};
-=======
-};
-
-exports.saveCollage5 = function(req,res)
-{
-	var image1=req.body.image1;
-	var image2=req.body.image2;
-	var image3=req.body.image3;
-	var image4=req.body.image4;
-	var collageId=req.body.collageId;
-	
-	var imgQuery="insert into five_collage values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
-	
-	console.log("query for image is: "+imgQuery);
-	
-	mysql.dbcall(function(err,results){
-		if(err){
-			throw err;
-		}
-		else 
-		{
-			console.log("images Saved Successfully");
-			alert({"save":"Success"});
-		}  
-	},imgQuery);
-};
-
-exports.displayCollage5 = function(req,res)
-{
-	
-	var imgQuery="select image1 from five_collage";
-	
-	console.log("query for image is: "+imgQuery);
-	
-	mysql.dbcall(function(err,results){
-		if(err){
-			throw err;
-		}
-		else 
-		{
-			console.log("image Saved Successfully");
-			res.render('next.ejs', {results: results});
+			console.log("image fetched Successfully");
+			console.log("Result :" + JSON.stringify(results));
+			console.log("Length :" + JSON.stringify(results.length));
+			res.render('collage4/displayCollage4', {results: results});
 		}  
 	},imgQuery);
 };
@@ -438,10 +438,10 @@ exports.nextPage = function(req,res){
 
 exports.getDiaries = function(req,res){
 	var userId = req.params.id;
-var query1="select tid from diary1 where userId="+userId;
-var query2 = "select id from diary2 where userId="+userId;
-var query3 = "select id from diary3 where userId="+userId;
-var finalobj = {};
+	var query1="select tid from diary1 where userId="+userId;
+	var query2 = "select id from diary2 where userId="+userId;
+	var query3 = "select id from diary3 where userId="+userId;
+	var finalobj = {};
 	mysql.dbcall(function(err,results1){
 
 		if(err){
@@ -499,8 +499,8 @@ var finalobj = {};
 
 		}else{
 			
-				res.send('next.ejs',{finalobj:JSON.stringify(finalobj)});
-			}
+			res.send('next.ejs',{finalobj:JSON.stringify(finalobj)});
+		}
 		
 
 	},query1);
@@ -509,14 +509,14 @@ var finalobj = {};
 
 exports.listDiaries = function(req,res){
 
-		var userId = req.body.id;
-var query1="select tid from diary1 where userId="+userId;
-var query2 = "select id from diary2 where userId="+userId;
-var query3 = "select id from diary3 where userId="+userId;
-var finalobj = {};
-var diary1 = {};
-var diary2 = {};
-var diary3 = {};
+	var userId = req.body.id;
+	var query1="select tid from diary1 where userId="+userId;
+	var query2 = "select id from diary2 where userId="+userId;
+	var query3 = "select id from diary3 where userId="+userId;
+	var finalobj = {};
+	var diary1 = {};
+	var diary2 = {};
+	var diary3 = {};
 	mysql.dbcall(function(err,results1){
 
 		if(err){
@@ -573,13 +573,12 @@ var diary3 = {};
 			throw err;
 
 		}else{
-				console.log("Results 1:"+JSON.stringify(diary1));
-				console.log("Results 2:"+JSON.stringify(diary2));
-				console.log("Results 3:"+JSON.stringify(diary3));
-				res.render('next.ejs',{diary1:diary1,diary2:diary2,diary3:diary3});
-			}
+			console.log("Results 1:"+JSON.stringify(diary1));
+			console.log("Results 2:"+JSON.stringify(diary2));
+			console.log("Results 3:"+JSON.stringify(diary3));
+			res.render('next.ejs',{diary1:diary1,diary2:diary2,diary3:diary3});
+		}
 		
 
 	},query1);
 }
->>>>>>> aba2569248d61c2765ad97b50ccc09a08ad89347

@@ -15,7 +15,7 @@ var app = express();
 
 app.use(express.bodyParser());
 app.use(express.cookieParser());
-app.use(express.session({ secret: 'keyboard cat', cookie: { maxAge: 300000 }}));
+app.use(express.session({ secret: 'keyboard cat', cookie: { maxAge: 3000000 }}));
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -33,12 +33,9 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-<<<<<<< HEAD
 
-app.get('/collage1', routes.collage1);
+
 app.get('/diary1/:id', user.displayDiary);
-=======
-app.get('/users', user.list);
 
 app.get('/collage2', routes.collage2);
 app.post('/saveCollage2', user.saveCollage2);
@@ -52,11 +49,6 @@ app.get('/collage4', routes.collage4);
 app.post('/saveCollage4', user.saveCollage4);
 app.get('/displayCollage4', user.displayCollage4);
 
-app.get('/collage5', routes.collage5);
-app.post('/saveCollage5', user.saveCollage5);
-app.get('/displayCollage5', user.displayCollage5);
-
->>>>>>> 2be0845a7f34c07e09f9daa3a4c6d2290ae882e3
 app.post('/saveDiary1', user.saveImageDiary1);
 app.post('/saveDiary2', user.saveImageDiary2);
 app.post('/saveDiary3', user.saveImageDiary3);
