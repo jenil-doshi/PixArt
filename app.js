@@ -33,6 +33,11 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+<<<<<<< HEAD
+
+app.get('/collage1', routes.collage1);
+app.get('/diary1/:id', user.displayDiary);
+=======
 app.get('/users', user.list);
 
 app.get('/collage2', routes.collage2);
@@ -51,12 +56,16 @@ app.get('/collage5', routes.collage5);
 app.post('/saveCollage5', user.saveCollage5);
 app.get('/displayCollage5', user.displayCollage5);
 
+>>>>>>> 2be0845a7f34c07e09f9daa3a4c6d2290ae882e3
 app.post('/saveDiary1', user.saveImageDiary1);
 app.post('/saveDiary2', user.saveImageDiary2);
 app.post('/saveDiary3', user.saveImageDiary3);
 app.get('/getDiary1', user.getDiary1);
 app.get('/getDiary2', user.getDiary2);
 app.get('/getDiary3', user.getDiary3);
+app.get('/next', user.nextPage);
+app.get('/getDiaries/:id', user.getDiaries);
+app.post('/listDiaries', user.listDiaries);
 
 
 //
@@ -67,3 +76,4 @@ app.get('/signout',auth.signout);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
