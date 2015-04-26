@@ -33,12 +33,11 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-<<<<<<< HEAD
 
-app.get('/collage1', routes.collage1);
+
+
 app.get('/diary1/:id', user.displayDiary);
-=======
-app.get('/users', user.list);
+
 
 app.get('/collage2', routes.collage2);
 app.post('/saveCollage2', user.saveCollage2);
@@ -56,7 +55,7 @@ app.get('/collage5', routes.collage5);
 app.post('/saveCollage5', user.saveCollage5);
 app.get('/displayCollage5', user.displayCollage5);
 
->>>>>>> 2be0845a7f34c07e09f9daa3a4c6d2290ae882e3
+
 app.post('/saveDiary1', user.saveImageDiary1);
 app.post('/saveDiary2', user.saveImageDiary2);
 app.post('/saveDiary3', user.saveImageDiary3);

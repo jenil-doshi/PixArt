@@ -9,11 +9,11 @@ var password = req.param("password");
 console.log("Email:"+email);
 console.log("Password:"+password);
 
-<<<<<<< HEAD
-var query = "select * from users where email="+'email'+" and password="+'password';
-=======
+
+
+
 var query = "select * from user_info where email="+'email'+" and password="+'password';
->>>>>>> 2be0845a7f34c07e09f9daa3a4c6d2290ae882e3
+
 mysql.dbcall(function(err,results){
 
 	if(err){
@@ -47,16 +47,10 @@ exports.signUp = function(req,res){
 var name = req.param("name");
 var password = req.param("password");
 var email = req.param("email");
-<<<<<<< HEAD
-var query = "insert into users (username,password,email) values ('"+username+"','"+password+"','"+email+"')";
-=======
 
-console.log("Email:"+email);
-console.log("Password:"+password);
-console.log("Name:"+name);
 
-var query = "insert into user_info (name,password,email) values ('"+name+"','"+password+"','"+email+"')";
->>>>>>> 2be0845a7f34c07e09f9daa3a4c6d2290ae882e3
+var query = "insert into user_info (fname,password,email) values ('"+name+"','"+password+"','"+email+"')";
+
 	mysql.dbcall(function(err,results){
 		if(err){
 			throw err;
@@ -64,7 +58,7 @@ var query = "insert into user_info (name,password,email) values ('"+name+"','"+p
 		else 
 		{
 			console.log("Data Saved Successfully");
-			res.send({"save":"Success"});
+			res.render();
 		}  
 	},query);
 
