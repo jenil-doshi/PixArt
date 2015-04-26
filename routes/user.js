@@ -262,7 +262,7 @@ exports.saveCollage2 = function(req,res)
 	var image4=req.body.image4;
 	var collageId=req.body.collageId;
 	
-	var imgQuery="insert into two_collage values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
+	var imgQuery="insert into two_collage (userid, collageid,image1,image2) values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"')";
 	
 	console.log("query for image is: "+imgQuery);
 	
@@ -305,7 +305,7 @@ exports.saveCollage3 = function(req,res)
 	var image4=req.body.image4;
 	var collageId=req.body.collageId;
 	
-	var imgQuery="insert into three_collage values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
+	var imgQuery="insert into three_collage (userid, collageid,image1,image2,image3) values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"')";
 	
 	console.log("query for image is: "+imgQuery);
 	
@@ -348,7 +348,7 @@ exports.saveCollage4 = function(req,res)
 	var image4=req.body.image4;
 	var collageId=req.body.collageId;
 	
-	var imgQuery="insert into four_collage values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
+	var imgQuery="insert into four_collage (userid, collageid,image1,image2,image3,image4) values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
 	
 	console.log("query for image is: "+imgQuery);
 	
@@ -381,6 +381,9 @@ exports.displayCollage4 = function(req,res)
 			res.render('next.ejs', {results: results});
 		}  
 	},imgQuery);
+<<<<<<< HEAD
+};
+=======
 };
 
 exports.saveCollage5 = function(req,res)
@@ -579,3 +582,4 @@ var diary3 = {};
 
 	},query1);
 }
+>>>>>>> aba2569248d61c2765ad97b50ccc09a08ad89347

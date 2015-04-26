@@ -28,7 +28,7 @@ mysql.dbcall(function(err,results){
 					console.log("Session Email ID: " + req.session.email);
 					console.log("Session UserId ID: " + req.session.userId);
 					console.log("Login Successfully");
-					res.render('collage4/collage4', {results:results});
+					res.render('second', {title:'PixArt'});
 					
 				}  
 				else
@@ -58,7 +58,11 @@ var query = "insert into user_info (fname,password,email) values ('"+name+"','"+
 		else 
 		{
 			console.log("Data Saved Successfully");
+<<<<<<< HEAD
 			res.render();
+=======
+			res.render('second', {title:'PixArt'});
+>>>>>>> 3612ecc34b92511005015127d025000e1d80778f
 		}  
 	},query);
 
