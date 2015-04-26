@@ -10,7 +10,11 @@ console.log("Email:"+email);
 console.log("Password:"+password);
 
 
+<<<<<<< HEAD
 var query = "select * from users where email="+'email'+" and password="+'password';
+=======
+
+>>>>>>> 4753e05b381646605495032ffaf0efd34f1cec9f
 
 var query = "select * from user_info where email="+'email'+" and password="+'password';
 
@@ -47,15 +51,19 @@ exports.signUp = function(req,res){
 var name = req.param("name");
 var password = req.param("password");
 var email = req.param("email");
+<<<<<<< HEAD
 
 var query = "insert into users (username,password,email) values ('"+username+"','"+password+"','"+email+"')";
 
+=======
+>>>>>>> 4753e05b381646605495032ffaf0efd34f1cec9f
 
-console.log("Email:"+email);
-console.log("Password:"+password);
-console.log("Name:"+name);
 
+<<<<<<< HEAD
 var query = "insert into user_info (name,password,email) values ('"+name+"','"+password+"','"+email+"')";
+=======
+var query = "insert into user_info (fname,password,email) values ('"+name+"','"+password+"','"+email+"')";
+>>>>>>> 4753e05b381646605495032ffaf0efd34f1cec9f
 
 	mysql.dbcall(function(err,results){
 		if(err){
@@ -64,7 +72,11 @@ var query = "insert into user_info (name,password,email) values ('"+name+"','"+p
 		else 
 		{
 			console.log("Data Saved Successfully");
+<<<<<<< HEAD
+			res.render();
+=======
 			res.render('second', {title:'PixArt'});
+>>>>>>> 3612ecc34b92511005015127d025000e1d80778f
 		}  
 	},query);
 
