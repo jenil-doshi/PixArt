@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>About</title>
+  <meta charset="utf-8">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="Your description">
+  <meta name="keywords" content="Your keywords">
+  <meta name="author" content="Your name">
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/touchTouch.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="css/kwicks-slider.css" type="text/css" media="screen">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="js/collage/jquery.js"></script>
+    <script type="text/javascript" src="js/collage/superfish.js"></script>
+  <script type="text/javascript" src="js/collage/jquery.flexslider-min.js"></script>
+  <script type="text/javascript" src="js/collage/jquery.kwicks-1.5.1.js"></script>
+  <script type="text/javascript" src="js/collage/jquery.easing.1.3.js"></script>    
+  <script type="text/javascript" src="js/collage/touchTouch.jquery.js"></script>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+   <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+  <script type="text/javascript">if($(window).width()>1024){document.write("<"+"script src='js/collage/jquery.preloader.js'></"+"script>");}  </script>
+
+
+<script>
+
+function saveCollage(id){
+
+  var obj = {
+   
+    image1:document.getElementById('name').src,
+    image2:document.getElementById('name1').src,
+    image3:document.getElementById('name2').src,
+    collageId: id
+  };
+
+    var xmlRequest;
+    if(window.XMLHttpRequest){
+      xmlRequest = new XMLHttpRequest();
+    }else{
+       xmlRequest=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+      //alert("Next");
+        xmlRequest.open('POST',"/saveCollage3",true);
+        xmlRequest.setRequestHeader("Content-type","application/json;charset=UTF-8");
+        xmlRequest.send(JSON.stringify(obj));
+    
+}
+
+</script>
+  </head>
+
+  <body ng-app="" ng-controller="userProfileController">
+  <!--  <div class="spinner"></div>  -->
+<!--============================== header =================================-->
+<header>
+      <div class="container clearfix">
+    <div class="row">
+          <div class="span12">
+        <div class="navbar navbar_">
+              <div class="container">
+            <h1 class="brand brand_"><a href="index.html"><img alt="" src="img/logo1.jpeg" 
+              style="height: 70px;">  </a></h1>
+            <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">Menu <span class="icon-bar"></span> </a>
+            <div class="nav-collapse nav-collapse_  collapse">
+                  <ul class="nav sf-menu">
+                <li class="active"><a href="/">Home</a></li>
+                <li class="sub-menu"><a href="/displayCollage4">My Work</a></li>
+                <li class="sub-menu"><a href="/signout">Logout</a></li>
+              </ul>
+                </div>
+          </div>
+            </div>
+      </div>
+        </div>
+  </div>
+    </header>
+<div class="bg-content">
+            
+      <!--============================== content =================================-->
+      
+      <div id="content" class="content-extra"><div class="ic">More Website Templates @ TemplateMonster.com. November19, 2012!</div>
+   
+  </div>
+ 
+   <section id="content" class="shortcode-item">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-5" style="width: 100%;">
+                    <h2 style="margin-left: 400px;">Three Image Collage</h2>
+                    <div class="accordion">
+                        <div class="panel-group" id="accordion1">
+                          
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">
+                                  <img src="img/collage2.jpg " alt="" style="height: 200px;margin-left: 50px;" />
+                                  <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                              </h3>
+                            </div>
+                            <div id="collapseThree1" class="panel-collapse collapse" style="margin-left: 80px;">
+                              <div class="panel-body">
+
+                                <div class="container-fluid">
+                                    <div class="row">
+                                      <div class="col-lg-6">
+
+                                 <div class="media-left" style="border-width: 10px;border-style: ridge;width: 790px;padding-left: 60px;padding-bottom: 20px;margin-left: 10px;" id="bg1">
+
+                                <div class="container-fluid">
+                                  <div class="row">
+                                  
+                                    <div class="col-sm-3 col-md-6 col-lg-5" >
+                                       <input style="display:none;" id="i4" name="fileupload" type="file" /> 
+                                       <span id="fc4" class="glyphicon glyphicon-plus"
+                                       style="font-size: xx-large;font-weight: bold;"></span>
+                                       <img  id="name4" class="media-object" alt="" 
+                                       style="border-width: 5px;border-style: double;" width=300 height=590> 
+                                    </div>
+
+                                    <div class="col-sm-9 col-md-6 col-lg-7" >
+                                       <input style="display:none;" id="i5" name="fileupload" type="file" /> 
+                                       <span id="fc5" class="glyphicon glyphicon-plus"
+                                       style="font-size: xx-large;font-weight: bold;"></span>
+                                       <img  id="name5" class="media-object" alt=""
+                                       style="border-width: 5px;border-style: double;" width=400 height=300> 
+                                    </div>
+                                     
+                                    <div class="col-sm-3 col-md-6 col-lg-7">
+                                       <input style="display:none;" id="i7" name="fileupload" type="file" /> 
+                                       <span id="fc7" class="glyphicon glyphicon-plus"
+                                       style="font-size: xx-large;font-weight: bold;"></span>
+                                       <img  id="name7" class="media-object" alt="" 
+                                       style="border-width: 5px;border-style: double;" width=400 height=250> 
+                                    </div>
+                                   
+                                  </div>
+                                </div>   
+                              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                              </div>
+                            </div>
+                          </div> 
+
+                          
+
+                         <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapsefour1">
+                                  <img src="img/collage4.jpg " alt="" style="height: 200px;margin-left: 920px;" />
+                                  <i class="fa fa-angle-right pull-right"></i>
+                                </a>
+                              </h3>
+                            </div>
+                            <div id="collapsefour1" class="panel-collapse collapse" style="margin-left: 80px;">
+                              <div class="panel-body">
+
+                                <div class="container-fluid">
+                                    <div class="row">
+                                      <div class="col-lg-6">
+
+                                 <div class="media-left" style="border-width: 10px;border-style: ridge;width: 790px;padding-left: 60px;padding-bottom: 20px;margin-left: 10px;" id="bg3">
+
+                                <div class="container-fluid">
+                                  <div class="row">
+                                  
+                                    <div class="col-sm-3 col-md-6 col-lg-12" >
+                                       <input style="display:none;" id="i12" name="fileupload" type="file" /> 
+                                       <span id="fc12" class="glyphicon glyphicon-plus"
+                                       style="font-size: xx-large;font-weight: bold;"></span>
+                                       <img  id="name12" class="media-object" alt="" 
+                                       style="border-width: 5px;border-style: double;" width=740 height=300> 
+                                    </div>
+                                    
+                                  </div>
+
+                                <div class="row">
+                                  <div class="col-sm-4 col-md-4 col-lg-4" >
+                                       <input style="display:none;" id="i13" name="fileupload" type="file" /> 
+                                       <span id="fc13" class="glyphicon glyphicon-plus"
+                                       style="font-size: xx-large;font-weight: bold;margin-left: 20px;"></span>
+                                       <img  id="name13" class="media-object" alt=""
+                                       style="border-width: 5px;border-style: double;" width=350 height=220> 
+                                    </div>
+                                    <div class="col-sm-4 col-md-4 col-lg-4">
+                                       <input style="display:none;" id="i14" name="fileupload" type="file" /> 
+                                       <span id="fc14" class="glyphicon glyphicon-plus"
+                                       style="font-size: xx-large;font-weight: bold;margin-left: 20px;"></span>
+                                       <img  id="name14" class="media-object" alt="" 
+                                       style="border-width: 5px;border-style: double;margin-left: 20px;" width=350 height=220> 
+                                    </div>
+                                  
+                                  </div>
+                                </div>   
+                              </div>
+                            </div>
+                            
+                            </div>
+                            </div>
+                              </div>
+                            </div>
+                          </div> 
+
+                        </div><!--/#accordion1-->
+                    </div>
+                </div>
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#content-->
+    </div>
+<!--============================== footer =================================-->
+<footer>
+      <div class="container clearfix">
+    <ul class="list-social pull-right">
+          <li><a class="icon-1" href="#"></a></li>
+          <li><a class="icon-2" href="#"></a></li>
+          <li><a class="icon-3" href="#"></a></li>
+          <li><a class="icon-4" href="#"></a></li>
+        </ul>
+    <div class="privacy pull-left">Website designed by PixArt</div>
+  </div>
+    </footer>
+<script type="text/javascript" src="js/collage/bootstrap.js"></script>
+<script>
+
+
+
+$('#fc4').click(function () {
+    $('#i4').click();
+});
+
+$('#i4').change(function () {
+    $('#name4').html(function(){
+        var fakePath = $('#i4').attr('value').toString().split('\\');
+        return fakePath[fakePath.length - 1];
+    });
+});
+
+$('#fc5').click(function () {
+    $('#i5').click();
+});
+
+$('#i5').change(function () {
+    $('#name5').html(function(){
+        var fakePath = $('#i5').attr('value').toString().split('\\');
+        return fakePath[fakePath.length - 1];
+    });
+});
+
+$('#fc6').click(function () {
+    $('#i6').click();
+});
+
+$('#i6').change(function () {
+    $('#name6').html(function(){
+        var fakePath = $('#i6').attr('value').toString().split('\\');
+        return fakePath[fakePath.length - 1];
+    });
+});
+
+$('#fc7').click(function () {
+    $('#i7').click();
+});
+
+$('#i7').change(function () {
+    $('#name7').html(function(){
+        var fakePath = $('#i7').attr('value').toString().split('\\');
+        return fakePath[fakePath.length - 1];
+    });
+});
+
+
+
+$('#fc12').click(function () {
+    $('#i12').click();
+});
+
+$('#i12').change(function () {
+    $('#name12').html(function(){
+        var fakePath = $('#i12').attr('value').toString().split('\\');
+        return fakePath[fakePath.length - 1];
+    });
+});
+
+$('#fc13').click(function () {
+    $('#i13').click();
+});
+
+$('#i13').change(function () {
+    $('#name13').html(function(){
+        var fakePath = $('#i13').attr('value').toString().split('\\');
+        return fakePath[fakePath.length - 1];
+    });
+});
+
+$('#fc14').click(function () {
+    $('#i14').click();
+});
+
+$('#i14').change(function () {
+    $('#name14').html(function(){
+        var fakePath = $('#i14').attr('value').toString().split('\\');
+        return fakePath[fakePath.length - 1];
+    });
+});
+
+$('#fc15').click(function () {
+    $('#i15').click();
+});
+
+
+function userProfileController($scope,$http,$location) {
+    
+
+
+
+         $('#i4').change(function () {
+        //alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded4;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+    function imageIsLoaded4(e) {
+           //$http.post('/uservalue',{image: e.target.result});
+            $('#name4').attr('src', e.target.result);
+            
+        };
+
+
+         $('#i5').change(function () {
+        //alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded5;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+    function imageIsLoaded5(e) {
+          // $http.post('/uservalue',{image: e.target.result});
+            $('#name5').attr('src', e.target.result);
+            
+        };
+
+
+         $('#i6').change(function () {
+        //alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded6;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+    function imageIsLoaded6(e) {
+           $http.post('/uservalue',{image: e.target.result});
+            $('#name6').attr('src', e.target.result);
+            
+        };
+
+
+         $('#i7').change(function () {
+        //alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded7;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+
+    function imageIsLoaded11(e) {
+          // $http.post('/uservalue',{image: e.target.result});
+            $('#name11').attr('src', e.target.result);
+            
+        };
+
+
+         $('#i12').change(function () {
+        //alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded12;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+    function imageIsLoaded12(e) {
+          // $http.post('/uservalue',{image: e.target.result});
+            $('#name12').attr('src', e.target.result);
+            
+        };
+
+
+         $('#i13').change(function () {
+        //alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded13;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+    function imageIsLoaded13(e) {
+          // $http.post('/uservalue',{image: e.target.result});
+            $('#name13').attr('src', e.target.result);
+            
+        };
+
+
+         $('#i14').change(function () {
+        //alert(1);
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = imageIsLoaded14;
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+
+    function imageIsLoaded14(e) {
+          // $http.post('/uservalue',{image: e.target.result});
+            $('#name14').attr('src', e.target.result);
+            
+        };
+
+
+}
+</script>
+</body>
+</html>

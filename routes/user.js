@@ -254,17 +254,34 @@ exports.getDiary3 = function(req,res)
 
 //***************************************************
 
-exports.saveImage = function(req,res)
+exports.saveCollage2 = function(req,res)
 {
-	//console.log(req);
-	//var img=req.param("img");
 	var image1=req.body.image1;
 	var image2=req.body.image2;
 	var image3=req.body.image3;
 	var image4=req.body.image4;
-	var collage=req.body.collage;
+	var collageId=req.body.collageId;
 	
-	var imgQuery="insert into 280.users (image1,image2,image3,image4,collage) values('"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"', '"+collage+"')";
+	var imgQuery="insert into two_collage values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
+	
+	console.log("query for image is: "+imgQuery);
+	
+	mysql.dbcall(function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			console.log("images Saved Successfully");
+			alert({"save":"Success"});
+		}  
+	},imgQuery);
+};
+
+exports.displayCollage2 = function(req,res)
+{
+	
+	var imgQuery="select image1 from two_collage";
 	
 	console.log("query for image is: "+imgQuery);
 	
@@ -275,15 +292,125 @@ exports.saveImage = function(req,res)
 		else 
 		{
 			console.log("image Saved Successfully");
-			res.send({"save":"Success"});
+			res.render('next.ejs', {results: results});
 		}  
 	},imgQuery);
 };
 
-exports.getImage = function(req,res)
+exports.saveCollage3 = function(req,res)
+{
+	var image1=req.body.image1;
+	var image2=req.body.image2;
+	var image3=req.body.image3;
+	var image4=req.body.image4;
+	var collageId=req.body.collageId;
+	
+	var imgQuery="insert into three_collage values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
+	
+	console.log("query for image is: "+imgQuery);
+	
+	mysql.dbcall(function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			console.log("images Saved Successfully");
+			alert({"save":"Success"});
+		}  
+	},imgQuery);
+};
+
+exports.displayCollage3 = function(req,res)
 {
 	
-	var imgQuery="select image1 from users";
+	var imgQuery="select image1 from three_collage";
+	
+	console.log("query for image is: "+imgQuery);
+	
+	mysql.dbcall(function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			console.log("image Saved Successfully");
+			res.render('next.ejs', {results: results});
+		}  
+	},imgQuery);
+};
+
+exports.saveCollage4 = function(req,res)
+{
+	var image1=req.body.image1;
+	var image2=req.body.image2;
+	var image3=req.body.image3;
+	var image4=req.body.image4;
+	var collageId=req.body.collageId;
+	
+	var imgQuery="insert into four_collage values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
+	
+	console.log("query for image is: "+imgQuery);
+	
+	mysql.dbcall(function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			console.log("images Saved Successfully");
+			alert({"save":"Success"});
+		}  
+	},imgQuery);
+};
+
+exports.displayCollage4 = function(req,res)
+{
+	
+	var imgQuery="select image1 from four_collage";
+	
+	console.log("query for image is: "+imgQuery);
+	
+	mysql.dbcall(function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			console.log("image Saved Successfully");
+			res.render('next.ejs', {results: results});
+		}  
+	},imgQuery);
+};
+
+exports.saveCollage5 = function(req,res)
+{
+	var image1=req.body.image1;
+	var image2=req.body.image2;
+	var image3=req.body.image3;
+	var image4=req.body.image4;
+	var collageId=req.body.collageId;
+	
+	var imgQuery="insert into five_collage values('"+req.session.userId+"','"+collageId+"','"+image1+"', '"+image2+"', '"+image3+"', '"+image4+"')";
+	
+	console.log("query for image is: "+imgQuery);
+	
+	mysql.dbcall(function(err,results){
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			console.log("images Saved Successfully");
+			alert({"save":"Success"});
+		}  
+	},imgQuery);
+};
+
+exports.displayCollage5 = function(req,res)
+{
+	
+	var imgQuery="select image1 from five_collage";
 	
 	console.log("query for image is: "+imgQuery);
 	

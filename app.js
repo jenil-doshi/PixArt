@@ -8,10 +8,14 @@ var express = require('express')
   , user = require('./routes/user')
   , auth = require('./routes/auth')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , session = require('express-session');
 
 var app = express();
 
+app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(express.session({ secret: 'keyboard cat', cookie: { maxAge: 300000 }}));
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -29,9 +33,30 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+<<<<<<< HEAD
 
 app.get('/collage1', routes.collage1);
 app.get('/diary1/:id', user.displayDiary);
+=======
+app.get('/users', user.list);
+
+app.get('/collage2', routes.collage2);
+app.post('/saveCollage2', user.saveCollage2);
+app.get('/displayCollage2', user.displayCollage2);
+
+app.get('/collage3', routes.collage3);
+app.post('/saveCollage3', user.saveCollage3);
+app.get('/displayCollage3', user.displayCollage3);
+
+app.get('/collage4', routes.collage4);
+app.post('/saveCollage4', user.saveCollage4);
+app.get('/displayCollage4', user.displayCollage4);
+
+app.get('/collage5', routes.collage5);
+app.post('/saveCollage5', user.saveCollage5);
+app.get('/displayCollage5', user.displayCollage5);
+
+>>>>>>> 2be0845a7f34c07e09f9daa3a4c6d2290ae882e3
 app.post('/saveDiary1', user.saveImageDiary1);
 app.post('/saveDiary2', user.saveImageDiary2);
 app.post('/saveDiary3', user.saveImageDiary3);
@@ -42,13 +67,11 @@ app.get('/next', user.nextPage);
 app.get('/getDiaries/:id', user.getDiaries);
 app.post('/listDiaries', user.listDiaries);
 
-//collage
 
-app.post('/uservalue', user.saveImage);
-app.get('/uservalue', user.getImage);
 //
 app.post('/login',auth.login);
 app.post('/signUp',auth.signUp);
+app.get('/signout',auth.signout);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
