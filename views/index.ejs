@@ -1,268 +1,256 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  <title><%= title %></title>
-  <meta charset="utf-8">
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-  <meta name="description" content="Your description">
-  <meta name="keywords" content="Your keywords">
-  <meta name="author" content="Your name">
-  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
-  <link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
-  <link rel="stylesheet" href="css/touchTouch.css" type="text/css" media="screen">
-  <link rel="stylesheet" href="css/kwicks-slider.css" type="text/css" media="screen">
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/superfish.js"></script>
-  <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
-  <script type="text/javascript" src="js/jquery.kwicks-1.5.1.js"></script>
-  <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>    
-  <script type="text/javascript" src="js/touchTouch.jquery.js"></script>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your keywords">
+    <meta name="author" content="Your name">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/touchTouch.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/kwicks-slider.css" type="text/css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/superfish.js"></script>
+    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="js/jquery.kwicks-1.5.1.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>    
+    <script type="text/javascript" src="js/touchTouch.jquery.js"></script>
 
 
-<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-<link type="text/css" rel="stylesheet" href="css/style1.css" /> 
+  <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+  <link type="text/css" rel="stylesheet" href="css/style1.css" /> 
 
-  <script type="text/javascript">if($(window).width()>1024){document.write("<"+"script src='js/jquery.preloader.js'></"+"script>");}  </script>
+    <script type="text/javascript">if($(window).width()>1024){document.write("<"+"script src='js/jquery.preloader.js'></"+"script>");}  </script>
 
-  <script>    
-     jQuery(window).load(function() { 
-     $x = $(window).width();    
-  if($x > 1024)
-  {     
-  jQuery("#content .row").preloader();    } 
-     
-     jQuery('.magnifier').touchTouch();     
-    jQuery('.spinner').animate({'opacity':0},1000,'easeOutCubic',function (){jQuery(this).css('display','none')});  
-        }); 
+    <script>    
+       jQuery(window).load(function() { 
+       $x = $(window).width();    
+    if($x > 1024)
+    {     
+    jQuery("#content .row").preloader();    } 
+       
+       jQuery('.magnifier').touchTouch();     
+      jQuery('.spinner').animate({'opacity':0},1000,'easeOutCubic',function (){jQuery(this).css('display','none')});  
+          }); 
+          
+    </script>
+
+    </head>
+
+    <body>
+      <div class="spinner"></div> 
+  <!--============================== header =================================-->
+  <header>
+        <div class="container clearfix">
+      <div class="row">
+            <div class="span12">
+          <div class="navbar navbar_">
+                <div class="container">
+              <h1 class="brand brand_"><a href="index.html"><img alt="" src="img/logo1.jpeg" 
+                style="height: 70px;">  </a></h1>
+              <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">Menu <span class="icon-bar"></span> </a>
+              <div class="nav-collapse nav-collapse_  collapse">
+                    <ul class="nav sf-menu">
+                  <li class="active"><a href="index.html">Home</a></li>
+                  <!-- <li class="sub-menu"><a href="index-1.html">Services</a>
+                      </li> -->
+                      <li><a id="modal_trigger" href="#modal" class="btn" 
+                        style="margin-top: -0px;margin-bottom: -0px;">Start</a></li>
+                   <li><a href="contactus.html">Contact</a></li>
+                </ul>
+                  </div>
+            </div>
+              </div>
+        </div>
+          </div>
+    </div>
+      </header>
+  <div class="bg-content">
+        <div class="container">
+      <div class="row">
+            <div class="span12"> 
+          <!--============================== slider =================================-->
+          <div class="flexslider">
+                <ul class="slides">
+              <li> <img src="img/collage.jpg" alt="" > </li>
+              <li> <img src="img/greeting.jpg" alt="" > </li>
+              <li> <img src="img/diary.jpg" alt="" > </li>
+            </ul>
+              </div>
+          <span id="responsiveFlag"></span>
+          <div class="block-slogan">
+                <h2>Welcome!</h2>
+                <div>
+              <p>Create, Customize and Save your precious memories!! With Pixart, you can transform your photos into a collage, write an online diary to pen your thoughts or moments and make photo cards for special occasions.</p>
+            </div>
+              </div>
+        </div>
+          </div>
+    </div>
         
-  </script>
+        <!--============================== content =================================-->
+        
+    <div id="content" class="content-extra">
+     
+            <div class="container">
+            <div class="row">
+                <ul class="thumbnails thumbnails-1">
+                   <li class="span3">
+                    <div class="thumbnail thumbnail-1">
+                      <h3>Collage</h3>
+                      <img  src="img/collage.jpg" alt="">
+                      <section> <strong>At vero eos et accusamus et iusto </strong>
+                            <p>Odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
+                          <!--   <form method="GET" action='/diary1/1'> -->
+                            <a href="#" class="btn btn-1">Read More</a> </section>
 
-  </head>
+                          </form>
+                    </div>
+                  </li>
+                  <li class="span3">
+                    <div class="thumbnail thumbnail-1">
+                      <h3>Diary</h3>
+                      <img  src="img/diary.jpg" alt="">
+                      <section> <strong>Deleniti atque corrupti quos</strong>
+                            <p>Dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                            <a href="#" class="btn btn-1">Read More</a> </section>
+                            <!--  <form method="GET" action='/diary2/1'> -->
+                            <!-- <a href="#" class="btn btn-1">Read More</a> </section> -->
 
-  <body>
-    <div class="spinner"></div> 
-<!--============================== header =================================-->
-<header>
-      <div class="container clearfix">
-    <div class="row">
-          <div class="span12">
-        <div class="navbar navbar_">
-              <div class="container">
-            <h1 class="brand brand_"><a href="index.html"><img alt="" src="img/logo1.jpeg" 
-              style="height: 70px;">  </a></h1>
-            <a class="btn btn-navbar btn-navbar_" data-toggle="collapse" data-target=".nav-collapse_">Menu <span class="icon-bar"></span> </a>
-            <div class="nav-collapse nav-collapse_  collapse">
-                  <ul class="nav sf-menu">
-                <li class="active"><a href="index.html">Home</a></li>
-                <!-- <li class="sub-menu"><a href="index-1.html">Services</a>
-                    </li> -->
-                    <li><a id="modal_trigger" href="#modal" class="btn" 
-                      style="margin-top: -0px;margin-bottom: -0px;">Start</a></li>
-                 <li><a href="contactus.html">Contact</a></li>
-              </ul>
-                </div>
-          </div>
-            </div>
-      </div>
-        </div>
-  </div>
-    </header>
-<div class="bg-content">
-      <div class="container">
-    <div class="row">
-          <div class="span12"> 
-        <!--============================== slider =================================-->
-        <div class="flexslider">
-              <ul class="slides">
-            <li> <img src="img/collage.jpg" alt="" > </li>
-            <li> <img src="img/greeting.jpg" alt="" > </li>
-            <li> <img src="img/diary.jpg" alt="" > </li>
-          </ul>
-            </div>
-        <span id="responsiveFlag"></span>
-        <div class="block-slogan">
-              <h2>Welcome!</h2>
-              <div>
-            <p>Create, Customize and Save your precious memories!! With Pixart, you can transform your photos into a collage, write an online diary to pen your thoughts or moments and make photo cards for special occasions.</p>
-          </div>
-            </div>
-      </div>
-        </div>
-  </div>
-      
-      <!--============================== content =================================-->
-      
-  <div id="content" class="content-extra">
+                            <!--  <form method="GET" action='/diary2/1'> -->
+                            <a href="#" class="btn btn-1">Read More</a> </section>
+                           <!--  <input type="submit"> -->
+
+                    </div>
+                  </li>
+                  <li class="span3">
+                    <div class="thumbnail thumbnail-1">
+                      <h3>Cards</h3>
+                      <img  src="img/photocard.jpg" alt="">
+                      <section> <strong>Deleniti atque corrupti quos</strong>
+                            <p>Dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                            <a href="#" class="btn btn-1">Read More</a> </section>
    
-          <div class="container">
-          <div class="row">
-              <ul class="thumbnails thumbnails-1">
-                 <li class="span3">
-                  <div class="thumbnail thumbnail-1">
-                    <h3>Collage</h3>
-                    <img  src="img/collage.jpg" alt="">
-                    <section> <strong>At vero eos et accusamus et iusto </strong>
-                          <p>Odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
-                        <!--   <form method="GET" action='/diary1/1'> -->
-                          <a href="#" class="btn btn-1">Read More</a> </section>
-<<<<<<< HEAD
-                          <!-- <input type="submit"> -->
-=======
-                         <!--  <input type="submit"> -->
->>>>>>> 4753e05b381646605495032ffaf0efd34f1cec9f
-                        </form>
-                  </div>
-                </li>
-                <li class="span3">
-                  <div class="thumbnail thumbnail-1">
-                    <h3>Diary</h3>
-                    <img  src="img/diary.jpg" alt="">
-                    <section> <strong>Deleniti atque corrupti quos</strong>
-                          <p>Dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-                          <a href="#" class="btn btn-1">Read More</a> </section>
-                          <!--  <form method="GET" action='/diary2/1'> -->
-                          <!-- <a href="#" class="btn btn-1">Read More</a> </section> -->
-<<<<<<< HEAD
-                          <!--  <form method="GET" action='/diary2/1'> -->
-                          <a href="#" class="btn btn-1">Read More</a> </section>
-                         <!--  <input type="submit"> -->
-=======
-                          <!-- <input type="submit"> -->
->>>>>>> 4753e05b381646605495032ffaf0efd34f1cec9f
-                  </div>
-                </li>
-                <li class="span3">
-                  <div class="thumbnail thumbnail-1">
-                    <h3>Cards</h3>
-                    <img  src="img/photocard.jpg" alt="">
-                    <section> <strong>Deleniti atque corrupti quos</strong>
-                          <p>Dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-                          <a href="#" class="btn btn-1">Read More</a> </section>
-                          <!--  <form method="GET" action='/diary3/1'> -->
-                          <!-- <a href="#" class="btn btn-1">Read More</a> </section> -->
-<<<<<<< HEAD
-                          <!--  <form method="GET" action='/diary3/1'> -->
-                          <a href="#" class="btn btn-1">Read More</a> </section>
-                        <!--   <input type="submit"> -->
-=======
-                          <!-- <input type="submit"> -->
->>>>>>> 4753e05b381646605495032ffaf0efd34f1cec9f
-                  </div>
-                </li>
-              </ul>
-            </div>
-           </div>
+                            <a href="#" class="btn btn-1">Read More</a> </section>
+    
+                    </div>
+                  </li>
+                </ul>
+              </div>
+             </div>
+          </div>
+    </div>
+      </div>
+
+
+  <div id="modal" class="popupContainer" style="display:none;">
+      <header class="popupHeader">
+        <span class="header_title">Login</span>
+        <span class="modal_close"><i class="fa fa-times"></i></span>
+      </header>
+      
+      <section class="popupBody">
+        <!-- Social Login -->
+        <div class="social_login">
+          
+          <div class="action_btns">
+            <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
+            <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
+          </div>
         </div>
-  </div>
+
+        <!-- Username & Password Login form -->
+        <div class="user_login">
+          <form method="post" action="/login">
+            <label>Email</label>
+            <input type="email" name="email" />
+            <br />
+
+            <label>Password</label>
+            <input type="password" name="password" />
+            <br />
+
+            <div class="action_btns">
+              <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+              <div class="one_half last"><input type="submit" class="btn btn_red" value="Login"></div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="user_register">
+          <form method="post" action="/signUp">
+            <label>Full Name</label>
+            <input type="text" name="name" />
+            <br />
+
+            <label>Email Address</label>
+            <input type="email" name="email" />
+            <br />
+
+            <label>Password</label>
+            <input type="password" name="password"/>
+            <br />
+
+            <div class="action_btns">
+              <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+              <div class="one_half last"><input type="submit" class="btn btn_red" value="Register"></div>
+            </div>
+          </form>
+        </div>
+      </section>
     </div>
 
 
-<div id="modal" class="popupContainer" style="display:none;">
-    <header class="popupHeader">
-      <span class="header_title">Login</span>
-      <span class="modal_close"><i class="fa fa-times"></i></span>
-    </header>
-    
-    <section class="popupBody">
-      <!-- Social Login -->
-      <div class="social_login">
-        
-        <div class="action_btns">
-          <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
-          <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
-        </div>
-      </div>
+  <!--============================== footer =================================-->
+  <footer>
+        <div class="container clearfix">
+      <ul class="list-social pull-right">
+            <li><a class="icon-1" href="#"></a></li>
+            <li><a class="icon-2" href="#"></a></li>
+            <li><a class="icon-3" href="#"></a></li>
+            <li><a class="icon-4" href="#"></a></li>
+          </ul>
+      <div class="privacy pull-left">Website designed by PixArt</div>
+    </div>
+      </footer>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
 
-      <!-- Username & Password Login form -->
-      <div class="user_login">
-        <form method="post" action="/login">
-          <label>Email</label>
-          <input type="email" name="email" />
-          <br />
+  <script type="text/javascript">
+    $("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
 
-          <label>Password</label>
-          <input type="password" name="password" />
-          <br />
+    $(function(){
+      // Calling Login Form
+      $("#login_form").click(function(){
+        $(".social_login").hide();
+        $(".user_login").show();
+        return false;
+      });
 
-          <div class="action_btns">
-            <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-            <div class="one_half last"><input type="submit" class="btn btn_red" value="Login"></div>
-          </div>
-        </form>
-      </div>
+      // Calling Register Form
+      $("#register_form").click(function(){
+        $(".social_login").hide();
+        $(".user_register").show();
+        $(".header_title").text('Register');
+        return false;
+      });
 
-      <!-- Register Form -->
-      <div class="user_register">
-        <form method="post" action="/signUp">
-          <label>Full Name</label>
-          <input type="text" name="name" />
-          <br />
+      // Going back to Social Forms
+      $(".back_btn").click(function(){
+        $(".user_login").hide();
+        $(".user_register").hide();
+        $(".social_login").show();
+        $(".header_title").text('Login');
+        return false;
+      });
 
-          <label>Email Address</label>
-          <input type="email" name="email" />
-          <br />
-
-          <label>Password</label>
-          <input type="password" name="password"/>
-          <br />
-
-          <div class="action_btns">
-            <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-            <div class="one_half last"><input type="submit" class="btn btn_red" value="Register"></div>
-          </div>
-        </form>
-      </div>
-    </section>
-  </div>
-
-
-<!--============================== footer =================================-->
-<footer>
-      <div class="container clearfix">
-    <ul class="list-social pull-right">
-          <li><a class="icon-1" href="#"></a></li>
-          <li><a class="icon-2" href="#"></a></li>
-          <li><a class="icon-3" href="#"></a></li>
-          <li><a class="icon-4" href="#"></a></li>
-        </ul>
-    <div class="privacy pull-left">Website designed by PixArt</div>
-  </div>
-    </footer>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-
-<script type="text/javascript">
-  $("#modal_trigger").leanModal({top : 200, overlay : 0.6, closeButton: ".modal_close" });
-
-  $(function(){
-    // Calling Login Form
-    $("#login_form").click(function(){
-      $(".social_login").hide();
-      $(".user_login").show();
-      return false;
-    });
-
-    // Calling Register Form
-    $("#register_form").click(function(){
-      $(".social_login").hide();
-      $(".user_register").show();
-      $(".header_title").text('Register');
-      return false;
-    });
-
-    // Going back to Social Forms
-    $(".back_btn").click(function(){
-      $(".user_login").hide();
-      $(".user_register").hide();
-      $(".social_login").show();
-      $(".header_title").text('Login');
-      return false;
-    });
-
-  })
-</script>
-</body>
-</html>
+    })
+  </script>
+  </body>
+  </html>
